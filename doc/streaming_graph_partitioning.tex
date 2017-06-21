@@ -6,26 +6,34 @@
 
 \begin{document}
 
-	\pagenumbering{gobble}
 	\maketitle
+
 	\newpage
+
+	\tableofcontents
+
+	% \pagenumbering{gobble}
 	\pagenumbering{arabic}
 
-	
+	\newpage
 	\section{Goals}
 	\subsection{Evenly partitioning graphs into distributed systems}
 	\subsection{Minimizing the cost of executing the queries}
 	\subsection{Fastly collecting the graph information}
 
-	\maketitle
 	\newpage
 	\section{Problmes and current progress}
 	\subsection{Problems}
-	\subsubsection{Cycle Graph} This problem is \cite{stanton2012streaming}, 
+	\subsubsection{Cycle Graph} This problem is mentioned by Stanton \emph{et al.}\cite{stanton2012streaming}, and this paper also proposed that the best performing heuristic is a weighted variant of the greedy algorithm. There are there three typical graph streaming orders considered in this page:\newline
+	1. Beneath First Search.\newline
+	2. Depth First Search.\newline
+	3. Random.\newline
 
 	\newpage
-	\section{References}
-	\bibliography{refs}
-	\bibliographystyle{ieeetr}
+	\begin{appendix}
+		\section{References}
+		\bibliography{refs}
+		\bibliographystyle{ieeetr}
+	\end{appendix}
 
 \end{document}
