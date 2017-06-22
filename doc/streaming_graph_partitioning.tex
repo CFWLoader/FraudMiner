@@ -1,6 +1,11 @@
-% \usepackage{url}
-
 \documentclass{article}
+
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
 
 \title{Overview of Streaming Graph Partitioning}
 \date{2017-06-21}
@@ -30,6 +35,18 @@
 	1. Beneath First Search.\newline
 	2. Depth First Search.\newline
 	3. Random.\newline
+	And this paper also summed up 10 heuristics for partitioning.(\emph{ind} indicates the which machine the node belongs to.)\newline
+	1. \textbf{Balanced} - \begin{equation} \emph{ind} = \mathop{\argmin}_{i\in[k]}{\{|P^t(i)|\}} \end{equation}
+	2. \textbf{Chunking} - \begin{equation} \emph{ind} = \lceil t/C \rceil \end{equation}						% floor
+	3. \textbf{Hashing} - \begin{equation} H(\emph{v}) = (\emph{v}~mod~\emph{k})~+~1 \end{equation}
+	4. \textbf{(Weighted) Deterministic Greedy} - \begin{equation} \emph{ind}=\mathop{\argmax}_{i\in[k]}{\{|P^t(\emph{i})\cap\Gamma(\emph{v})|\emph{w}(\emph{t},\emph{i})\}} \end{equation}
+	5. \textbf{(Weighted) Randomized Greedy} - \begin{equation} \emph{Pr(i)}=|P^t(\emph{i})\cap\Gamma(\emph{v})|\emph{w}(\emph{t},\emph{i})/Z \end{equation}
+	6. \textbf{(Weighted) Triangles} - 
+	\begin{equation}
+		\mathop{\argmax}_{i\in[k]}{\{\frac{|\emph{E}(P^t(\emph{i})\cap\Gamma(\emph{v}), P^t(\emph{i})\cap\Gamma(\emph{v}))|}
+		{\binom{|P^t(\emph{i})\cap\Gamma(\emph{v})|}{2}}\emph{w}(\emph{t},\emph{i})\}}
+	\end{equation}
+
 	\subsubsection{Inseparable Problem} I tested the use of \textbf{Giraph}\cite{giraph} and found out that it still can not parallelly handle graph though this framework is based on the hadoop\cite{hadoop}.
 
 	\newpage
