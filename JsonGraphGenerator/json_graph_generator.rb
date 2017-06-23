@@ -100,9 +100,33 @@ end
 
 if $0 == __FILE__
 
+  file_path = './test_graph.txt'
+
+  node_limit = 100
+
+  edge_limit = 10
+
+  unless ARGV[0].nil?
+
+    file_path = ARGV[0]
+
+  end
+
+  unless ARGV[1].nil?
+
+    node_limit = ARGV[1].to_i
+
+  end
+
+  unless ARGV[2].nil?
+
+    edge_limit = ARGV[2].to_i
+
+  end
+
   jgg = JsonGraphGenerator.new
 
   #jgg.gen_graph node_limit: 20, edge_limit: 20
-  jgg.gen_graph_to_file './test_graph.txt', node_limit: 100000, edge_limit: 5000
+  jgg.gen_graph_to_file file_path, node_limit: node_limit, edge_limit: edge_limit
 
 end
