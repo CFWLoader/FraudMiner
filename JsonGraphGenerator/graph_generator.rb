@@ -120,8 +120,8 @@ class GraphGenerator
 
         unless tagged_nodes.include? tag
 
-          # save_file.print "#{src_node_id} #{tag}\n"
-          print "#{src_node_id} #{tag}\n"
+          save_file.print "#{src_node_id} #{tag}\n"
+          # print "#{src_node_id} #{tag}\n"
 
           tagged_nodes.add tag
 
