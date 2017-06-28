@@ -30,7 +30,7 @@ class GraphGenerator
 
     target_file = open(file_path, 'w')
 
-    1.upto(node_limit) {|node_num|
+    1.upto(node_limit) { |node_num|
 
       #print "SRC: #{node_num}, SRC_VAL: #{rand(node_num)}, Edges: #{gen_edges node_num, edge_limit, node_limit}\n"
       target_file.print "[#{node_num},#{rand(node_num)},[#{gen_edges node_num, edge_limit, node_limit}]]\n"
@@ -67,7 +67,7 @@ class GraphGenerator
 
     end
 
-    1.upto(node_limit) {|node_num|
+    1.upto(node_limit) { |node_num|
 
       #print "SRC: #{node_num}, SRC_VAL: #{rand(node_num)}, Edges: #{gen_edges node_num, edge_limit, node_limit}\n"
       print "[#{node_num},#{rand(node_num)},[#{gen_edges node_num, edge_limit, node_limit}]]\n"
@@ -78,7 +78,11 @@ class GraphGenerator
 
   def gen_edges source_id, edge_limit, id_limit
 
-    edge_counts = if edge_limit.nil? then rand(id_limit) else rand(edge_limit) end
+    edge_counts = if edge_limit.nil? then
+                    rand(id_limit)
+                  else
+                    rand(edge_limit)
+                  end
 
     ret_str = ""
 
@@ -86,9 +90,11 @@ class GraphGenerator
 
       gen_tar_id = rand(id_limit)
 
-      if source_id ==  gen_tar_id then next end
+      if source_id == gen_tar_id then
+        next
+      end
 
-      ret_str +=  "[#{gen_tar_id},#{rand(1..edge_counts)}],"
+      ret_str += "[#{gen_tar_id},#{rand(1..edge_counts)}],"
 
     }
 
@@ -100,13 +106,9 @@ class GraphGenerator
 
     save_file = open file_path, 'w'
 
-    gened_edge_count = 0
-
     1.upto(node_id_limit) { |src_node_id|
 
-      if gened_edge_count >= edge_quantity_limit then break end
-
-      edge_num_to_gen = rand
+      edge_num_to_gen = rand edge_quantity_limit
 
       tagged_nodes = Set.new
 
@@ -114,19 +116,16 @@ class GraphGenerator
 
       1.upto(edge_num_to_gen) {
 
-          if gened_edge_count >= edge_quantity_limit then break end
+        tag = rand(node_id_limit)
 
-          tag = rand(node_id_limit)
+        unless tagged_nodes.include? tag
 
-          unless tagged_nodes.include? tag
+          # save_file.print "#{src_node_id} #{tag}\n"
+          print "#{src_node_id} #{tag}\n"
 
-            save_file.print "#{src_node_id} #{tag}\n"
+          tagged_nodes.add tag
 
-            tagged_nodes.add tag
-
-            gened_edge_count += 1
-
-          end
+        end
       }
 
     }
@@ -210,9 +209,11 @@ if $0 == __FILE__
 
   case ARGV[0]
 
-    when 'adjlist' then gen_json_graph
+    when 'adjlist' then
+      gen_json_graph
 
-    when 'edgelist' then  gen_edgelist
+    when 'edgelist' then
+      gen_edgelist
 
     else
 
