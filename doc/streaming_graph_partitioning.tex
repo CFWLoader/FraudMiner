@@ -31,7 +31,8 @@
 	\newpage
 	\section{Problmes and current progress}
 	\subsection{Problems}
-	\subsubsection{Cycle Graph} This problem is mentioned by Stanton \emph{et al.}\cite{stanton2012streaming}, and this paper also proposed that the best performing heuristic is a weighted variant of the greedy algorithm. There are there three typical graph streaming orders considered in this page:\newline
+	\subsubsection{Cycle Graph}
+	This problem is mentioned by Stanton \emph{et al.}\cite{stanton2012streaming}, and this paper also proposed that the best performing heuristic is a weighted variant of the greedy algorithm. There are there three typical graph streaming orders considered in this page:\newline
 	1. Beneath First Search.\newline
 	2. Depth First Search.\newline
 	3. Random.\newline
@@ -52,10 +53,26 @@
 	9. \textbf{Avoid Big}\newline
 	10.\textbf{Greedy EvoCut}\cite{andersen2009finding}
 
-	\subsubsection{Inseparable Problem} I tested the use of \textbf{Giraph}\cite{giraph} and found out that it still can not parallelly handle graph though this framework is based on the hadoop\cite{hadoop}.
+	\subsubsection{Inseparable Problem}
+	I tested the use of \textbf{Giraph}\cite{giraph} and found out that it still can not parallelly handle graph though this framework is based on the hadoop\cite{hadoop}.
 
 	\subsection{Current Progress}
-	\subsubsection{Graph Partitioning} METIS\cite{metis} is the main-stream algorithm to partition the graph. Though so many years passed, the efficiency is still low in my personal opinion based on the evidence\cite{salihoglu2013gps:}. But There are now more inspiration. And GPS system useses an in-memory map to record where the node stored.
+	\subsubsection{Graph Partitioning}
+	METIS\cite{metis} is the main-stream algorithm to partition the graph. Though so many years passed, the efficiency is still low in my personal opinion based on the evidence\cite{salihoglu2013gps:}. But There are now more inspiration. And GPS system useses an in-memory map to record where the node stored.
+
+	\newpage
+	\section{Experiments}
+	\subsection{Giraph}
+	Giraph is a iterative graph processing computational framework based on Map-Reduced frameworkd(Hadoop provides).
+	\subsubsection{Related Bases}
+	\textbf{Hadoop.} Hadoop provides the distributive data store system.
+	\textbf{Map Reduced Framework\cite{lammel2008google's}.} This framework provides cluster-computing function. The computational process will be \textbf{\emph{mapped}} to several or more sub compu tational processes. After individual processes finished, \textbf{Bulk Synchronous Parallelism\cite{gerbessiotis1994direct}} will happens to control the iteration. All sub processes will be \text{\emph{reduced}} to the result.
+	\subsubsection{Experiments}
+	\textbf{Exceptions.} When the graph's size reaches about 100,000 nodes. \emph{OutOfMemory} exception will occur with Json format file. The reason is the map-reduced framework will just dispatch 2 JobTrackers, one for searching Workers and one for real computation. Once the workers job finished, the searching JobTrackers terminated, left the worker. In my experiments, map-reduced framework fails to dispatch multi workers. The only worker can not stand the high memory cost and OutOfMemory exception happens when only worker is loading the nodes.
+	\subsection{GraphChi\cite{kyrola2012graphchi:}}
+	GraphChi is a graph computation framework. Different with Map-Reduces Computation frameworks and distributive graph store system, GraphChi uses single personal computer to compute big graph(over millions of nodes).
+	\subsubsection{Experiments}
+	\textbf{Result.} With the size of millions of nodes(Random Generated), GraphChi successfully deployed Page Rank\cite{pagerank} on this graphs and got the result.
 
 	\newpage
 	\section{Personal heuristics}
@@ -64,6 +81,11 @@
 
 	\subsection{Ideas spring from the output of the 'streaming'}
 	Section 1 specifies the requirement of such a streaming graph handling system. And the method\cite{stanton2012streaming} purely considers the partitioning problems. Maybe we should start from the goals and the one of goals is Minimizing the cost of querying. Once we take this goal, we might not treat the partitioning problem so important. It means evenly partitioning the graph is not the key problem, it's the fastly collecting the graph information.
+
+	\subsection{Distributive GraphChi? Or Metis + GraphChi?}
+
+	\subsection{Viewing the graph as a sphere}
+	This is my personal inspiration. What if we view the graph as a sphere in 3 dimensions or circle in 2 dimensions. The vertex, with less links, may more probable be placed to the posistion near the edge of the sphere(circle). We can start graph cutting work with such this vertexes. Then use some techs, such as random walk, to find the middle position of the sphere. The links of edge vertexes and middle position might be the base of cutting the sphere.
 
 	\newpage
 	\begin{appendix}
