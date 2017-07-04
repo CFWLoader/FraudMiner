@@ -78,6 +78,9 @@
 	\textbf{Less communicating produres.} GraphChi programs are similar to those written for Pregel\cite{malewicz2009pregel:} or GraphLab\cite{low2014graphlab:}. But those programs depend on Message Passing Interface(MPI)\cite{meyer1993message-passing}, GraphChi programs directly modify the value of vertex.
 	\subsubsection{Shortages}
 	\textbf{Graph Traversal-like Algorithms.} Such this algorithms require loading neighbor nodes, that means scanning a complete memory-shard. Under such situation, GraphChi would degenerate to linear loading process.
+	\newline
+	\textbf{Big part load.} GraphChi requires full load of in-edges.
+	\newline
 	\textbf{Not automatic enough.} GraphChi would not automatically detect the available RAM of user PC. It needs explicit program parameters.
 	\subsubsection{Experiments}
 	\textbf{Result.} With the size of millions of nodes(Random Generated), GraphChi successfully deployed Page Rank\cite{pagerank} on this graphs and got the result.
