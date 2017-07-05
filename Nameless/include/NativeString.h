@@ -13,6 +13,18 @@ namespace nameless::native
 
         String(const char*);
 
+        String(int);
+
+        String(unsigned int);
+
+        String(long);
+
+        String(unsigned long);
+
+        String(float);
+
+        String(double);
+
 
     private:
 
