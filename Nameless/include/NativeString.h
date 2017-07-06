@@ -7,23 +7,32 @@
 
 namespace nameless::native
 {
+
+//    char*
+
     class String
     {
     public:
 
         String(const char*);
 
-        String(int);
-
-        String(unsigned int);
-
-        String(long);
-
-        String(unsigned long);
-
-        String(float);
-
-        String(double);
+//        String(int);
+//
+//        String(unsigned);
+//
+//        String(long);
+//
+//        String(unsigned long);
+//
+//        String(long long);
+//
+//        String(unsigned long long);
+//
+//        String(float);
+//
+//        String(double);
+//
+//        String(long double);
 
 
     private:

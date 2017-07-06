@@ -9,11 +9,14 @@
 
 namespace nameless::native
 {
+
+    class std::string;
+
     class NativeFile
     {
     public:
 
-        NativeFile();
+        NativeFile(const std::string&, const std::string&);
 
         virtual ~NativeFile();
 

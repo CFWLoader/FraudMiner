@@ -5,12 +5,12 @@
 
 using namespace nameless::native;
 
-char* itoa(int num, int radix)
-{}
+//char* toString(int num, int radix)
+//{}
 
 
 String::String(const char* str) : str__(str)
 {}
 
-String::String(int int_num) : str__(itoa(int_num, 10))
-{}
+//String::String(int int_num) : str__(itoa(int_num, 10))
+//{}
