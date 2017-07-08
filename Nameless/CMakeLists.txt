@@ -3,7 +3,14 @@ project(Nameless)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_subdirectory(test)
+set(INCLUDE_DIR ${PROJECT_SOURCE_DIR}/include)
 
-# set(SOURCE_FILES main.cpp include/NativeFile.h src/native/NativeFile.cpp)
-# add_executable(Nameless ${SOURCE_FILES})
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -I${INCLUDE_DIR}")
+
+# message(${INCLUDE_DIR})
+
+add_subdirectory(src lib)
+add_subdirectory(test bin)
+
+#set(SOURCE_FILES main.cpp)
+#add_executable(Nameless ${SOURCE_FILES})

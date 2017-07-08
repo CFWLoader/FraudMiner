@@ -4,7 +4,7 @@
 #include <cstdio>
 #include <string>
 
-#include "../../include/NativeFile.h"
+#include <NativeFile.h>
 
 using namespace nameless::native;
 

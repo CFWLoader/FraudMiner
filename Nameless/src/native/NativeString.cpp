@@ -1,7 +1,7 @@
 //
 // Created by CFWLoader on 7/5/17.
 //
-#include "../../include/NativeString.h"
+#include "include/NativeString.h"
 
 using namespace nameless::native;
 

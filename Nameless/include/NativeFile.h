@@ -10,8 +10,6 @@
 namespace nameless::native
 {
 
-    class std::string;
-
     class NativeFile
     {
     public:
