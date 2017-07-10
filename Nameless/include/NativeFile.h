@@ -6,6 +6,7 @@
 #define NAMELESS_NATIVEFILE_H
 
 #include <stdio.h>
+#include <string>
 
 namespace nameless::native
 {
