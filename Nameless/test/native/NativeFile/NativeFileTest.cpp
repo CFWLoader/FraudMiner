@@ -81,12 +81,19 @@ int readLineTest1()
 
     NativeFile readerFile("./readLineTest1.txt", "r");
 
+    auto count = 0;
+
     while(!readerFile.eof())
     {
         auto str = readerFile.readLine();
 
         cout << str << endl;
+
+        ++count;
+
     }
+
+    cout << count << endl;
 
     return 0;
 

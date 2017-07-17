@@ -19,6 +19,8 @@ namespace nameless::native
 
         NativeFile(const std::string&, const std::string&);
 
+        NativeFile(const std::string&, const char*);
+
         bool eof() const;
 
         bool close();

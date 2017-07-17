@@ -15,6 +15,10 @@ NativeFile::NativeFile(const string& filePath, const string& mode) :
         fp__(fopen(filePath.c_str(), mode.c_str()))
 {}
 
+NativeFile::NativeFile(const std::string & filePath, const char* mode) :
+        fp__(fopen(filePath.c_str(), mode))
+{}
+
 bool NativeFile::eof() const
 {
 
@@ -85,11 +89,13 @@ string NativeFile::readLine()
 
     memset(buf__, 0, MAX_BUF_SIZE__);
 
-//    size_t idx = strlen(buf__);
-//
-//    buf__[idx - 3] = '\0';
-
     fgets(buf__,  MAX_BUF_SIZE__, fp__);
+
+    size_t idx = strlen(buf__);
+
+    // printf("idx:%d\n", idx);
+
+    if(idx > 0){buf__[idx - 1] = '\0';}
 
     return string(buf__);
 
