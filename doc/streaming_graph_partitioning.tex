@@ -70,15 +70,21 @@
 
 	\subsubsection{GraphChi}
 	\textbf{GraphChi}\cite{kyrola2012graphchi:} is a graph computation framework. Different with Map-Reduces Computation frameworks and distributive graph store system, GraphChi uses single personal computer to compute big graph(over millions of nodes). It uses \textbf{sorted source node number(ID)} to divide the graph to shards. Once we use GraphChi as the framework, that means we have to preprocess the ID of nodes.
-	\textbf{Shining Points}\newline
-	\textbf{Evolving Graphs Supports.}\newline
+	\newline
+	\textbf{Shining Points}
+	\newline
+	\textbf{Evolving Graphs Supports.}
+	\newline
 	\textbf{Less communicating produres.} GraphChi programs are similar to those written for Pregel\cite{malewicz2009pregel:} or GraphLab\cite{low2014graphlab:}. But those programs depend on Message Passing Interface(MPI)\cite{meyer1993message-passing}, GraphChi programs directly modify the value of vertex.
-	\subsubsection{Shortages}
-	\textbf{Graph Traversal-like Algorithms.} Such this algorithms require loading neighbor nodes, that means scanning a complete memory-shard. Under such situation, GraphChi would degenerate to linear loading process.
 	\newline
-	\textbf{Big part load.} GraphChi requires full load of in-edges.
+	% \subsubsection{Shortages}
+	\textbf{Shortages:}
 	\newline
-	\textbf{Not automatic enough.} GraphChi would not automatically detect the available RAM of user PC. It needs explicit program parameters.
+	\textbf{1. Graph Traversal-like Algorithms.} Such this algorithms require loading neighbor nodes, that means scanning a complete memory-shard. Under such situation, GraphChi would degenerate to linear loading process.
+	\newline
+	\textbf{2. Big part load.} GraphChi requires full load of in-edges.
+	\newline
+	\textbf{3. Not automatic enough.} GraphChi would not automatically detect the available RAM of user PC. It needs explicit program parameters.
 
 	\subsubsection{PowerGraph}
 	\textbf{PowerGraph}\cite{gonzalez2012powergraph:} is a distributive version of GraphChi(as my temporary opinion). It performs well in the papers I viewed.
@@ -89,6 +95,9 @@
 	\textbf{\emph{pin-and-slide}}
 	\newline
 	\textbf{\emph{column view}}
+
+	\subsubsection{Pregel+}
+	This is a enhanced implementation of Pregel. \cite{lu2014large-scale} evaluated main-stream graph computing system and Pregel takes the best overall performances.
 
 	\newpage
 	\section{Experiments}
@@ -105,7 +114,7 @@
 
 	\subsection{Giraph}
 	\textbf{Exceptions.} When the graph's size reaches about 100,000 nodes. \emph{OutOfMemory} exception will occur with Json format file. The reason is the map-reduced framework will just dispatch 2 JobTrackers, one for searching Workers and one for real computation. Once the workers job finished, the searching JobTrackers terminated, left the worker. In my experiments, map-reduced framework fails to dispatch multi workers. The only worker can not stand the high memory cost and OutOfMemory exception happens when only worker is loading the nodes.
-	\subsection{GraphChi\cite{kyrola2012graphchi:}}
+	\subsection{GraphChi}
 	\textbf{Result.} With the size of millions of nodes(Random Generated), GraphChi successfully deployed Page Rank\cite{pagerank} on this graphs and got the result.
 
 	\newpage
