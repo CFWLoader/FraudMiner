@@ -1,7 +1,7 @@
 //
 // Created by CFWLoader on 7/18/17.
 //
-#include <NamelessGraph.h>
+#include <graph/NamelessGraph.h>
 #include <iostream>
 
 using namespace std;

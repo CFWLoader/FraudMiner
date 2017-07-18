@@ -1,8 +1,8 @@
 //
 // Created by CFWLoader on 7/17/17.
 //
-#include <GraphLoader.h>
-#include <NativeFile.h>
+#include <native/GraphLoader.h>
+#include <native/NativeFile.h>
 #include <iostream>
 
 using namespace std;

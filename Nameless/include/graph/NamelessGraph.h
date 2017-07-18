@@ -5,6 +5,8 @@
 #ifndef NAMELESS_NAMELESSGRAPH_H
 #define NAMELESS_NAMELESSGRAPH_H
 
+#include <vector>
+
 namespace nameless::graph
 {
     template<typename ID_TYPE, typename WEIGHT_TYPE>
@@ -29,6 +31,26 @@ namespace nameless::graph
     class AdjacencyVertex
     {
     public:
+
+        AdjacencyVertex(ID_TYPE srcNode, WEIGHT_TYPE srcWeight = WEIGHT_TYPE()) :
+            srcNode__(srcNode),
+            srcWeight__(srcWeight),
+            neighbors()
+        {}
+
+        bool addAdjacency(ID_TYPE neighborId, WEIGHT_TYPE cost = WEIGHT_TYPE())
+        {
+            neighbors.push_back(std::pair<ID_TYPE, WEIGHT_TYPE>(neighborId, cost));
+
+            return true;
+        }
+
+        ID_TYPE srcNode__;
+
+        WEIGHT_TYPE srcWeight__;
+
+        std::vector<std::pair<ID_TYPE, WEIGHT_TYPE>> neighbors;
+
     };
 }
 
