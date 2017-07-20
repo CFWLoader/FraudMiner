@@ -5,4 +5,4 @@ link_directories(${PROJECT_BINARY_DIR}/lib/native)
 
 add_executable(graphloadertest ${SRC_FILES})
 
-target_link_libraries(graphloadertest nameless)
+target_link_libraries(graphloadertest nameless_native)
