@@ -87,7 +87,7 @@
 	\textbf{3. Not automatic enough.} GraphChi would not automatically detect the available RAM of user PC. It needs explicit program parameters.
 
 	\subsubsection{PowerGraph}
-	\textbf{PowerGraph}\cite{gonzalez2012powergraph:} is a distributive version of GraphChi(as my temporary opinion). It performs well in the papers I viewed.
+	\textbf{PowerGraph}\cite{gonzalez2012powergraph:} is a distributive version of GraphChi(as my temporary opinion). It performs well in the papers I viewed. It also uses synchronous model \emph{GAS} - \emph{Gather}, \emph{Apply}, \emph{Scatter}. The \emph{Gather} process is collecting the neighbors' information, the \emph{Apply} is applying some function to calculate the vertex's value and the \emph{Scatter} is updating the neighbors' value.
 
 	\subsubsection{TurboGraph}
 	\textbf{TurboGraph}\cite{han2013turbograph:} is a parallel IO and computation framework on a single PC. According to the paper's content, TurboGraph uses a mapping method to record the store location of vertexes.
