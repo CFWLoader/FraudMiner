@@ -29,7 +29,15 @@
 	\subsection{Fastly collecting the graph information}
 
 	\newpage
-	\section{Problmes and current progress}
+	\section{Preliminaries, Problmes and current progresses}
+	\subsection{Preliminaries}
+	\subsubsection{Power Law Graph}
+	\begin{equation}
+		\textbf{P}(d) \propto d^{-\alpha}
+	\end{equation}
+	\begin{equation}\label{pwlformula}
+		\alpha = \frac{|E|}{|V|}
+	\end{equation}
 	\subsection{Problems}
 	\subsubsection{Cycle Graph}
 	This problem is mentioned by Stanton \emph{et al.}\cite{stanton2012streaming}, and this paper also proposed that the best performing heuristic is a weighted variant of the greedy algorithm. There are there three typical graph streaming orders considered in this page:\newline
@@ -43,6 +51,8 @@
 	\subsection{Current Progress}
 	\subsubsection{Graph Partitioning}
 	METIS\cite{metis} is the main-stream algorithm to partition the graph. Though so many years passed, the efficiency is still low in my personal opinion based on the evidence\cite{salihoglu2013gps:}. But There are now more inspiration. And GPS system useses an in-memory map to record where the node stored.
+	\subsubsection{Technicals}
+	\textbf{Replica} is a common techs for graph partitioning. That means the cut vertexes will be copied to the cluster machines. More than one machine in the cluster will keep the replica of the node.
 	\subsubsection{Partitional Heuristics}
 	Stanton \emph{et al.}\cite{stanton2012streaming} also summed up 10 heuristics for partitioning.(\emph{ind} indicates the which machine the node belongs to.)\newline
 	1. \textbf{Balanced} - \begin{equation} \emph{ind} = \mathop{\argmin}_{i\in[k]}{\{|P^t(i)|\}} \end{equation}
@@ -60,6 +70,7 @@
 	8. \textbf{Prefer Big}\newline
 	9. \textbf{Avoid Big}\newline
 	10.\textbf{Greedy EvoCut}\cite{andersen2009finding}
+
 
 	\subsubsection{Giraph}
 	Giraph is a iterative graph processing computational framework based on Map-Reduced frameworkd(Hadoop provides).
@@ -127,8 +138,14 @@
 
 	\subsection{Distributive GraphChi? Or Metis + GraphChi?}
 
+	\subsection{Thinking in graph partitioning}
+	\subsubsection{Replica}
+	\textbf{Replica} was mentioned in above section. But this technical is used for replicating all the cut vertexes. Why don't we change the way to use this technical? We can replicate the vertexes that have high degree(in, out) in every machine to reduce the cost of communication.
+
 	\subsection{Viewing the graph as a sphere}
 	This is my personal inspiration. What if we view the graph as a sphere in 3 dimensions or circle in 2 dimensions. The vertex, with less links, may more probable be placed to the posistion near the edge of the sphere(circle). We can start graph cutting work with such this vertexes. Then use some techs, such as random walk, to find the middle position of the sphere. The links of edge vertexes and middle position might be the base of cutting the sphere.
+	\subsubsection{Can we find a fixed model to view the graph?}
+	The relationships of vertexes in the graph are fixed. But when we use a visual picture to describe a graph, every can draw a different picture. So different way to describe the graph may trigger different method to paratition the graph. So can we find an efficient model to describe visualized graph? Or the most accurate visualized model to view the graph?
 	\subsubsection{Can we apply some mathematical methods on such a 'sphere'?}
 	Such as doing some integrals on this sphere to find the cutting hyperplane and evenly dividing this objects?
 
@@ -145,6 +162,19 @@
 	During the analysis of \textbf{State node}, I found out that the critical problem of such a graph system is the stateful data. It's also the critical problem of applying the procedure-oriented method to the algorithm. The philosophy of designing such a system is \textbf{decoupling}. According to the functions, the nodes in the cluster are categorized to the above 3 types. But this 3 typical functions can be merged into a single node as a simplified implementation.
 	\newline
 	But the problem is still the stateful data. This means we have to deal with it for parallel computation. The cost of synchonizing stateful data is vastly expensive.
+
+	\subsection{Use the graph structure(pattern) to optimize the calculation}
+	Imagine a social network, a big movie star may has many fans. In graph, we may see a big star shape in the graph. A cluster of friends, they may follow each others. In graph, we may see a dense subgraph in the network. So if once we find such a structure, we can put them in a single machine. This can leave least edge to be cut.
+	\newline
+	This requires the algorithm to dectect the major structure(pattern) in the network.
+	\subsubsection{When encountering the streaming graph}
+	This method can just be applied to static graph. But the graph may always changes. When the the edges changes, does the graph structure(pattern) changes? Currently I think we can use \emph{Minor Update} and \emph{Major Update} to fix such a problem.
+	\newline
+	\textbf{Minor Update} means the vertexes' info will be simply saved and the system will update the relative vertexes' infor.
+	\newline
+	\textbf{Major Update} means system needs to check the whole graph and may trigger the graph repartitioning.
+	\newline
+	So what's the time of \emph{Major Update}? Currently I read the \emph{PowerGraph}, the paper introduced the Power-Law Graph. We can use the power-law formula\eqref{pwlformula} as the threshold of \emph{Major Update}.
 
 	\newpage
 	\begin{appendix}
