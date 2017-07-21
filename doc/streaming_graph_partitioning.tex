@@ -132,6 +132,20 @@
 	\subsubsection{Can we apply some mathematical methods on such a 'sphere'?}
 	Such as doing some integrals on this sphere to find the cutting hyperplane and evenly dividing this objects?
 
+	\subsection{Reformat the Cluster Framework}
+	In my opinion, the procedure of graph computation contains three types of cluster node:
+	\newline
+	1. Naive graph data node. These nodes are for storing the original graph data, such as vertex data and adjacency data.
+	\newline
+	2. Computation node. This type of nodes is for applying the algorithm to the graph and get the result. We can treat this nodes as the service server in a web service system.
+	\newline
+	3. State node. These nodes are functioning as the connector to type 1 and type 2 nodes. They also storing the temporary and stateful data of the algorithm. For example, \emph{Page Rank} needs the \emph{PR} value of every vertexes in last iteration. In the first iteration, \emph{State node} ask the \emph{Naive graph data node} for the adjacency data. In the subsequent iterations, \emph{Computation node} will require the last iterative \emph{PR} value of vertexes. Due to the stateful data, state nodes possibly need the synchronization.
+	\newline
+	\subsubsection{More}
+	During the analysis of \textbf{State node}, I found out that the critical problem of such a graph system is the stateful data. It's also the critical problem of applying the procedure-oriented method to the algorithm. The philosophy of designing such a system is \textbf{decoupling}. According to the functions, the nodes in the cluster are categorized to the above 3 types. But this 3 typical functions can be merged into a single node as a simplified implementation.
+	\newline
+	But the problem is still the stateful data. This means we have to deal with it for parallel computation. The cost of synchonizing stateful data is vastly expensive.
+
 	\newpage
 	\begin{appendix}
 		\section{References}
