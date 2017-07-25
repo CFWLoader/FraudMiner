@@ -20,7 +20,7 @@ int generateGraph1(string filePath)
     return 0;
 }
 
-int constructorTest1()
+int testConstructor1()
 {
     GraphLoader loader("./test.txt", GraphLoader::EDGE_LIST);
 
@@ -31,5 +31,5 @@ int constructorTest1()
 int main(int argc, char* argv[])
 {
     generateGraph1("./test.txt");
-    constructorTest1();
+    testConstructor1();
 }

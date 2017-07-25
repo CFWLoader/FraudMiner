@@ -8,7 +8,7 @@
 using namespace std;
 using namespace nameless::native;
 
-int constructorTest1()
+int testConstructor1()
 {
 
     NativeFile file("./constructorTest1.txt", "w");
@@ -19,7 +19,7 @@ int constructorTest1()
 
 }
 
-int writeTest1()
+int testWrite1()
 {
 
     NativeFile file("./writeTest1.txt", "w");
@@ -34,7 +34,7 @@ int writeTest1()
 
 }
 
-int writeTest2()
+int testWrite2()
 {
 
     NativeFile file("./writeTest2.txt", "w");
@@ -51,7 +51,7 @@ int writeTest2()
 
 }
 
-int writeLineTest1()
+int testWriteLine1()
 {
 
     NativeFile file("./writeLineTest1.txt", "w");
@@ -66,7 +66,7 @@ int writeLineTest1()
 
 }
 
-int readLineTest1()
+int testReadLine1()
 {
 
     NativeFile file("./readLineTest1.txt", "w+");
@@ -106,6 +106,6 @@ int main()
 
     // writeLineTest1();
 
-    readLineTest1();
+    testReadLine1();
 
 }

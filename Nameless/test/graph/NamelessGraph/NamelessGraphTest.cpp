@@ -7,7 +7,7 @@
 using namespace std;
 using namespace nameless::graph;
 
-int edgeConstructorTest1()
+int testEdgeConstructor1()
 {
     Edge<int, float> testEdge(1, 2, 2.3, 4.5);
 
@@ -16,7 +16,7 @@ int edgeConstructorTest1()
     return 0;
 }
 
-int updateAdjacencyTest()
+int testUpdateAdjacency1()
 {
     AdjacencyVertex<int, float> vertex(0, 1);
 
@@ -41,7 +41,7 @@ int updateAdjacencyTest()
     return 0;
 }
 
-int removeAdjacencyTest()
+int testRemoveAdjacency1()
 {
     AdjacencyVertex<int, float> vertex(0, 1);
 
@@ -66,7 +66,7 @@ int removeAdjacencyTest()
     return 0;
 }
 
-int findAdjacencyTest()
+int testFindAdjacency1()
 {
     AdjacencyVertex<int, float> vertex(0, 1);
 
@@ -106,5 +106,5 @@ int main(int argc, char* argv[])
 
     // removeAdjacencyTest();
 
-    findAdjacencyTest();
+    testFindAdjacency1();
 }

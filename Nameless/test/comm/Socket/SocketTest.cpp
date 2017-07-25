@@ -5,7 +5,6 @@
 
 #include <iostream>
 
-#include <comm/SocketOpts.h>
 #include <comm/Socket.h>
 
 
@@ -17,7 +16,7 @@ int testConstructor1()
 {
     sockaddr_in addr;
 
-    Socket socket1(createNonblockingOrDie(addr.sin_family));
+    Socket socket1(SocketOpts::createNonblockingOrDie(addr.sin_family));
 
     return 0;
 }
@@ -26,7 +25,7 @@ int testGetTcpInfo1()
 {
     sockaddr_in addr;
 
-    Socket socket1(createNonblockingOrDie(addr.sin_family));
+    Socket socket1(SocketOpts::createNonblockingOrDie(addr.sin_family));
 
     shared_ptr<tcp_info> tcpInfo = socket1.getTcpInfo();
 
@@ -38,6 +37,7 @@ int testGetTcpInfo1()
 int main(int argc, char* argv[])
 {
     testGetTcpInfo1();
+    // testConstructor1();
 
     return 0;
 }
