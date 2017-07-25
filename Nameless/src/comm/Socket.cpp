@@ -13,7 +13,7 @@ Socket::Socket(int sockfd) : socket_fd__(sockfd)
 
 Socket::~Socket()
 {
-    SocketOpts::closeSocket(socket_fd__);
+    // closeSocket(socket_fd__);
 }
 
 int Socket::socketFileDescriptor() const

@@ -8,20 +8,28 @@
 using namespace std;
 using namespace nameless::comm::SocketOpts;
 
-int testCreateNonblockingOrDie1()
+int testTFunction1()
 {
-    sockaddr_in addr;
-
-    int fd = createNonblockingOrDie(addr.sin_family);
-
-    closeSocket(fd);
+    cout << tFunction() << endl;
 
     return 0;
 }
 
+//int testCreateNonblockingOrDie1()
+//{
+//    sockaddr_in addr;
+//
+//    int fd = createNonblockingOrDie(addr.sin_family);
+//
+//    closeSocket(fd);
+//
+//    return 0;
+//}
+
 int main(int argc, char* argv[])
 {
-    testCreateNonblockingOrDie1();
+    // testCreateNonblockingOrDie1();
+    testTFunction1();
 
     return 0;
 }

@@ -9,9 +9,14 @@
 
 namespace nameless::comm::SocketOpts
 {
-    int createNonblockingOrDie(sa_family_t);
+    int tFunction()
+    {
+        return 33;
+    }
 
-    void closeSocket(int);
+//    int createNonblockingOrDie(sa_family_t);
+//
+//    void closeSocket(int);
 }
 
 #endif //NAMELESS_SOCKETOPTS_H
