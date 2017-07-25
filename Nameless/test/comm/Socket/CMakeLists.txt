@@ -1,4 +1,4 @@
-set(SRC_FILES SocketTest.cpp)
+set(SRC_FILES SocketTest.cpp ../SocketOpts/SocketOptsTest.cpp)
 
 link_directories(${PROJECT_BINARY_DIR}/lib/comm)
 

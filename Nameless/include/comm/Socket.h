@@ -6,7 +6,6 @@
 #define NAMELESS_SOCKET_H
 
 #include <netinet/tcp.h>
-#include <arpa/inet.h>
 
 #include <memory>
 
