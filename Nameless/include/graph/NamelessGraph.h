@@ -6,6 +6,7 @@
 #define NAMELESS_NAMELESSGRAPH_H
 
 #include <vector>
+#include <algorithm>
 
 namespace nameless::graph
 {
@@ -44,6 +45,33 @@ namespace nameless::graph
 
             return true;
         }
+
+        bool removeAdjacency(ID_TYPE neighborId)
+        {
+            neighbors.erase(std::remove_if(neighbors.begin(), neighbors.end(),
+                           [neighborId](std::pair<ID_TYPE, WEIGHT_TYPE> pair__){return pair__.first == neighborId;}),
+                            neighbors.end());
+
+            return true;
+        }
+
+        bool updateAdjacency(ID_TYPE neighborId, WEIGHT_TYPE new_cost = WEIGHT_TYPE())
+        {
+            typename std::vector<std::pair<ID_TYPE, WEIGHT_TYPE>>::iterator target =
+                    std::find_if(neighbors.begin(), neighbors.end(), [neighborId](std::pair<ID_TYPE, WEIGHT_TYPE> pair__){return pair__.first == neighborId;});
+
+            target->second = new_cost;
+
+            return true;
+        }
+
+        std::pair<ID_TYPE, WEIGHT_TYPE> findAdjacency(ID_TYPE neighborId)
+        {
+            typename std::vector<std::pair<ID_TYPE, WEIGHT_TYPE>>::iterator target =
+                    std::find_if(neighbors.begin(), neighbors.end(), [neighborId](std::pair<ID_TYPE, WEIGHT_TYPE> pair__){return pair__.first == neighborId;});
+
+            return *target;
+        };
 
         ID_TYPE srcNode__;
 

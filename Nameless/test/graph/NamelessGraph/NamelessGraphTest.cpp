@@ -16,7 +16,95 @@ int edgeConstructorTest1()
     return 0;
 }
 
+int updateAdjacencyTest()
+{
+    AdjacencyVertex<int, float> vertex(0, 1);
+
+    vertex.addAdjacency(1, 1);
+    vertex.addAdjacency(2, 3);
+    vertex.addAdjacency(3, 4);
+
+    for(auto item : vertex.neighbors)
+    {
+        cout << item.first << " " << item.second << endl;
+    }
+
+    vertex.updateAdjacency(2, 10);
+
+    for(vector<pair<int, float>>::iterator iter = vertex.neighbors.begin();
+            iter != vertex.neighbors.end();
+            ++iter)
+    {
+        cout << iter->first << " " << iter->second << endl;
+    }
+
+    return 0;
+}
+
+int removeAdjacencyTest()
+{
+    AdjacencyVertex<int, float> vertex(0, 1);
+
+    vertex.addAdjacency(1, 1);
+    vertex.addAdjacency(2, 3);
+    vertex.addAdjacency(3, 4);
+
+    for(auto item : vertex.neighbors)
+    {
+        cout << item.first << " " << item.second << endl;
+    }
+
+    vertex.removeAdjacency(2);
+
+    for(vector<pair<int, float>>::iterator iter = vertex.neighbors.begin();
+        iter != vertex.neighbors.end();
+        ++iter)
+    {
+        cout << iter->first << " " << iter->second << endl;
+    }
+
+    return 0;
+}
+
+int findAdjacencyTest()
+{
+    AdjacencyVertex<int, float> vertex(0, 1);
+
+    vertex.addAdjacency(1, 1);
+    vertex.addAdjacency(2, 3);
+    vertex.addAdjacency(3, 4);
+
+//    for(auto item : vertex.neighbors)
+//    {
+//        cout << item.first << " " << item.second << endl;
+//    }
+//
+//    vertex.removeAdjacency(2);
+//
+//    for(vector<pair<int, float>>::iterator iter = vertex.neighbors.begin();
+//        iter != vertex.neighbors.end();
+//        ++iter)
+//    {
+//        cout << iter->first << " " << iter->second << endl;
+//    }
+    pair<int, float> target = vertex.findAdjacency(3);
+
+    cout << target.first << " " << target.second << endl;
+
+    pair<int, float> target2 = vertex.findAdjacency(4);
+
+    cout << target2.first << " " << target2.second << endl;
+
+    return 0;
+}
+
 int main(int argc, char* argv[])
 {
-    edgeConstructorTest1();
+    // edgeConstructorTest1();
+
+    // updateAdjacencyTest();
+
+    // removeAdjacencyTest();
+
+    findAdjacencyTest();
 }
