@@ -1,11 +1,22 @@
-all:
-	@pdflatex streaming_graph_partitioning.tex
-	@bibtex	streaming_graph_partitioning
-	@pdflatex streaming_graph_partitioning.tex
-	@pdflatex streaming_graph_partitioning.tex
+TARGET_LIST=*.log *.bbl *.aux *.blg *.toc
+
+all: sgp gr
+
+sgp:
+	pdflatex streaming_graph_partitioning.tex
+	bibtex	streaming_graph_partitioning
+	pdflatex streaming_graph_partitioning.tex
+	pdflatex streaming_graph_partitioning.tex
+
+gr:
+	pdflatex graph_resolver.tex
+	bibtex graph_resolver
+	pdflatex graph_resolver.tex
+	pdflatex graph_resolver.tex
 
 clean:
-	@rm -rf 	streaming_graph_partitioning.log \
+	@rm -rf ${TARGET_LIST}
+#	@rm -rf 	streaming_graph_partitioning.log \
 		streaming_graph_partitioning.bbl \
 		streaming_graph_partitioning.aux \
 		streaming_graph_partitioning.blg \
@@ -14,10 +25,15 @@ clean:
 
 distclean:
 	@make clean
-	@rm -rf ./streaming_graph_partitioning.pdf
+	@rm -rf ./streaming_graph_partitioning.pdf ./graph_resolver.pdf
 #	rm -rf 	streaming_graph_partitioning.log \
 	       	streaming_graph_partitioning.pdf \
 		streaming_graph_partitioning.bbl \
 		streaming_graph_partitioning.aux \
 		streaming_graph_partitioning.blg \
 		textput.log
+
+list:
+	@echo -e "Target Alias:\n \
+		spg - streaming_graph_partitioning\n \
+		gr - graph_resolver"

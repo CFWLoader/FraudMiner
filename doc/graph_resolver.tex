@@ -1,0 +1,71 @@
+\documentclass{article}
+
+%\usepackage{url}
+%\usepackage{amsmath}
+%\usepackage{amssymb}
+
+%\DeclareMathOperator*{\argmin}{argmin}
+%\DeclareMathOperator*{\argmax}{argmax}
+
+\title{Graph Resolver}
+\date{2017-07-25}
+\author{Evan Huang \\ cfwloader@gmail.com}
+
+\begin{document}
+
+	\maketitle
+
+	\tableofcontents
+
+	\pagenumbering{arabic}
+
+	\newpage
+
+	\section{Introduction}
+	As the web technology develops, the complexity of web has been grown. The contents of web network are becoming vastly vivid and this brings challenges to both computer hardware and software technologies. Especially in graph processing, the web graph evolves and requires large volume of computer resources to handle.
+
+	\section{Overviews}
+	In this section, we would take a look of some preliminaries of graph processing, current progresses and the problems.
+	\subsection{Power Graph}
+	Joseph \emph{et al.}\cite{gonzalez2012powergraph:} proposed a graph processing system mostly similar to the prototype that I am working for in many currently existed systems.
+
+	\section{Related Works}
+	Graph processing has been research for a while, there are some sophisticated methods and technologies to be referenced. 
+	\subsection{Map Reduced}
+	\subsection{Bulk Synchronous Parallelism}
+	\subsubsection{Level of Parallelism}
+	\textbf{Naive BSP}
+	\newline
+	\textbf{Asynchronous Execution}
+	\newline
+	\textbf{Asynchronous Execution with Serializability}
+
+	\subsubsection{Message Combiner}
+	\subsection{Graph Partitioning}
+
+	\section{Algorithms}
+	For finding the number of minimal edges(vertices) cut, we have to design an algorithm to figure it out. Different with other cutting analyzer, \textbf{Graph Resolver} uses \textbf{Graph Pattern}\cite{yan2008mining} to search the cutting solutions.
+
+	\section{System Design}
+	In our design, we have two aspect to improve the graph processing system: One is software algorithm design and the other one is deploying system framework design.
+	\subsection{Software System Architecture}
+	The system architecture can be abstractly described as the following:
+	\newline
+	1. \textbf{Graph pattern examiner}. For examing the pattern of the links, this helps finding the minimal number of edges(verticies) cut in order to reduce the cummunications between processing unit in the cluster.
+	\newline
+	2. \textbf{Mapper and Reducer}. These two objects are usually required for the graph processing system due to their sophisticated applications.
+	3. \textbf{Parallel Controller}. Just as \emph{Giraph's Message Combiner}, we have to sychronize the intermedias during the processes because the graph's not-to-be-decoupled trait. The \emph{Power Graph} uses \emph{serializability} to sychronize the data in the parallel computations. Once we abandon the synchronization controls, we lose the accuracy or the parallel advantages.
+
+	\section{Experiments and Evaluations}
+
+	\section{Conclusion}
+
+	\section{Acknowledgements}
+
+	\begin{appendix}
+		\section{References}
+		\bibliography{gr_refs}
+		\bibliographystyle{ieeetr}
+	\end{appendix}
+
+\end{document}
