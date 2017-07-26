@@ -1,6 +1,6 @@
 \documentclass{article}
 
-%\usepackage{url}
+\usepackage{url}
 %\usepackage{amsmath}
 %\usepackage{amssymb}
 
@@ -15,6 +15,8 @@
 
 	\maketitle
 
+	\newpage
+
 	\tableofcontents
 
 	\pagenumbering{arabic}
@@ -26,6 +28,13 @@
 
 	\section{Overviews}
 	In this section, we would take a look of some preliminaries of graph processing, current progresses and the problems.
+	\subsection{Giraph and HAMA}
+	They\cite{seo2010hama:}\cite{giraph} are the early open source implementation of \emph{Pregel}\cite{malewicz2009pregel:} and implemented in Java so they can easly integrated into the existed Java system. Their disadvantages are also from Java because the memory restriction of the machines. Once they try to solve a large graph in low performance machines, they will report failures due to the exceeded memory limit.
+	\newline
+	What's more, HAMA is newly implemented and has poor maintanence. It's a bit hard to deploy it in a practical environments.
+	\subsection{GraphChi}
+	It\cite{kyrola2012graphchi:} is a graph processing software system in a single machine. It uses the hard drive to save the caches.
+	\subsubsection{Memory Shard}
 	\subsection{Power Graph}
 	Joseph \emph{et al.}\cite{gonzalez2012powergraph:} proposed a graph processing system mostly similar to the prototype that I am working for in many currently existed systems.
 
@@ -45,6 +54,7 @@
 
 	\section{Algorithms}
 	For finding the number of minimal edges(vertices) cut, we have to design an algorithm to figure it out. Different with other cutting analyzer, \textbf{Graph Resolver} uses \textbf{Graph Pattern}\cite{yan2008mining} to search the cutting solutions.
+	\subsection{Can I prove that this part is the minimal coupling zone?}
 
 	\section{System Design}
 	In our design, we have two aspect to improve the graph processing system: One is software algorithm design and the other one is deploying system framework design.
@@ -54,14 +64,26 @@
 	1. \textbf{Graph pattern examiner}. For examing the pattern of the links, this helps finding the minimal number of edges(verticies) cut in order to reduce the cummunications between processing unit in the cluster.
 	\newline
 	2. \textbf{Mapper and Reducer}. These two objects are usually required for the graph processing system due to their sophisticated applications.
+	\newline
 	3. \textbf{Parallel Controller}. Just as \emph{Giraph's Message Combiner}, we have to sychronize the intermedias during the processes because the graph's not-to-be-decoupled trait. The \emph{Power Graph} uses \emph{serializability} to sychronize the data in the parallel computations. Once we abandon the synchronization controls, we lose the accuracy or the parallel advantages.
+
+	\subsection{Deployment System Architecture}
+	In my opinion, the intractable problem of graph processing is decoupling. Especially the coupling of verticies because most graph processing algorithm requires knowing the adjacent nodes' information. In worst cases, every processing units in the cluster may require a traversal of integral graph. And it seems that current algorithm can not handle this obstacle.
+	\newline
+	So from the view of software project design, we can try to minimize the zone of coupling instead of pure algorithm optimization. The method of storing graph is not the key factor of coupling so we can simply leave the graph storing distributive even without synchronization. Also every algorithm can be designed as stateless so that this part is distribution-available. The left part, most intractable one, is stateful data. Simple example, \emph{Page Rank} generates \emph{PR} values of vertices in the graph and these values require the neighbors' values. So the coupling happens in here and this part is the minimal coupling zone(assumed proven).
+	\newline
+	According to the normal design of software project, we can view the algorithm as the application layer, the graph storing as the storing layer and the stateful data as the caches in the service layer.
+	\newline
+	In a small cluster or the experimental environment, this three layers can be merged into a single machine, that is the basic unit, called worker in \emph{Giraph}.
 
 	\section{Experiments and Evaluations}
 
-	\section{Shortages and Future Works}
-	\subsection{Dynamic Graph Stream}
-
 	\section{Conclusion}
+
+	\section{Future Works}
+	\subsection{Dynamic Graph Stream}
+	\subsection{Adaptivity}
+	During the executions of graph algorithm, the edges's information changes so fast. For example, some temporary data of some graph algorithm during the graph processing. So information may becomes expired and this will cause imbalance again. Can we find an algorithm that can sorts this information in the distributive environment?
 
 	\section{Acknowledgements}
 
