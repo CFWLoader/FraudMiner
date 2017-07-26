@@ -34,10 +34,25 @@ int testGetTcpInfo1()
     return 0;
 }
 
+int testGetTcpInfoString1()
+{
+    sockaddr_in addr;
+
+    Socket socket1(SocketOpts::createNonblockingOrDie(addr.sin_family));
+
+    shared_ptr<string> tcpInfo = socket1.getTcpInfoString();
+
+    cout << *tcpInfo << endl;
+
+    return 0;
+}
+
 int main(int argc, char* argv[])
 {
-    testGetTcpInfo1();
+    // testGetTcpInfo1();
     // testConstructor1();
+
+    testGetTcpInfoString1();
 
     return 0;
 }

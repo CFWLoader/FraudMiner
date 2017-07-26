@@ -9,7 +9,7 @@
 
 #include <memory>
 
-#include <native/Noncopyable.hpp>
+#include <native/ClassAttributes.hpp>
 
 namespace nameless::comm
 {
@@ -20,7 +20,7 @@ namespace nameless::comm
         void closeSocket(int);
     }
 
-    class Socket : nameless::native::Noncopyable
+    class Socket : nameless::native::ClassAttributes::Noncopyable
     {
     public:
 
@@ -31,6 +31,10 @@ namespace nameless::comm
         int socketFileDescriptor() const;
 
         std::shared_ptr<tcp_info> getTcpInfo() const;
+
+        std::shared_ptr<std::string> getTcpInfoString() const;
+
+        bool bindAddress(const InetAddress& localAddr);
 
 
     private:
