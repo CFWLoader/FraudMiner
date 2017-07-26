@@ -6,6 +6,7 @@
 #include <iostream>
 
 #include <comm/Socket.h>
+#include <comm/SocketOpts.h>
 
 
 using namespace std;

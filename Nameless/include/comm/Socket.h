@@ -10,16 +10,10 @@
 #include <memory>
 
 #include <native/ClassAttributes.hpp>
+#include <comm/InetAddress.h>
 
 namespace nameless::comm
 {
-    namespace SocketOpts
-    {
-        int createNonblockingOrDie(sa_family_t family);
-
-        void closeSocket(int);
-    }
-
     class Socket : nameless::native::ClassAttributes::Noncopyable
     {
     public:
