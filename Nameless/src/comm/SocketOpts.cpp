@@ -6,32 +6,33 @@
 
 #include <comm/SocketOpts.h>
 
-using namespace nameless::comm::SocketOpts;
-
-int createNonblockingOrDie(sa_family_t family)
+namespace nameless::comm::SocketOpts
 {
+    int createNonblockingOrDie(sa_family_t family)
+    {
 #if VALGRIND
-    int sockfd = ::socket(family, SOCK_STREAM, IPPROTO_TCP);
-  if (sockfd < 0)
-  {
-    LOG_SYSFATAL << "sockets::createNonblockingOrDie";
-  }
+        int sockfd = ::socket(family, SOCK_STREAM, IPPROTO_TCP);
+      if (sockfd < 0)
+      {
+        LOG_SYSFATAL << "sockets::createNonblockingOrDie";
+      }
 
-  setNonBlockAndCloseOnExec(sockfd);
+      setNonBlockAndCloseOnExec(sockfd);
 #else
-    int sockfd = ::socket(family, SOCK_STREAM | SOCK_NONBLOCK | SOCK_CLOEXEC, IPPROTO_TCP);
-    if (sockfd < 0)
-    {
-        throw "SocketOpts::createNonblockingOrDie()";
-    }
+        int sockfd = ::socket(family, SOCK_STREAM | SOCK_NONBLOCK | SOCK_CLOEXEC, IPPROTO_TCP);
+        if (sockfd < 0)
+        {
+            throw "SocketOpts::createNonblockingOrDie()";
+        }
 #endif
-    return sockfd;
-}
+        return sockfd;
+    }
 
-void closeSocket(int fd__)
-{
-    if(::close(fd__) < 0)
+    void closeSocket(int fd__)
     {
-        throw "SocketOpts::closeSocket()";
+        if (::close(fd__) < 0)
+        {
+            throw "SocketOpts::closeSocket()";
+        }
     }
 }
