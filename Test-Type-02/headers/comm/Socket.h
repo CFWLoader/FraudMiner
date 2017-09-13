@@ -5,6 +5,8 @@
 #ifndef TEST_TYPE_02_SOCKET_H
 #define TEST_TYPE_02_SOCKET_H
 
+#include <netinet/in.h>
+
 namespace test_type02
 {
     namespace comm
@@ -13,11 +15,19 @@ namespace test_type02
         {
         public:
 
-            Socket();
+            Socket(uint16_t);
+
+            int bind();
+
+            int listen();
+
+            int accept();
 
         private:
 
             int sock_fd_;
+
+            sockaddr_in host_addr_;
 
         };
     }

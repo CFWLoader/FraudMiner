@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 11)
 
 include_directories(${PROJECT_SOURCE_DIR}/headers)
 
-add_subdirectory(src)
+add_subdirectory(src lib)
 add_subdirectory(test)
 
 set(SOURCE_FILES main.cpp)
