@@ -1,6 +1,6 @@
 TARGET_LIST=*.log *.bbl *.aux *.blg *.toc
 
-all: sgp gr
+all: sgp gr cdb
 
 sgp:
 	pdflatex streaming_graph_partitioning.tex
@@ -14,6 +14,9 @@ gr:
 	pdflatex graph_resolver.tex
 	pdflatex graph_resolver.tex
 
+cdb:
+	pdflatex community_detection_base.tex
+
 clean:
 	@rm -rf ${TARGET_LIST}
 #	@rm -rf 	streaming_graph_partitioning.log \
@@ -25,7 +28,7 @@ clean:
 
 distclean:
 	@make clean
-	@rm -rf ./streaming_graph_partitioning.pdf ./graph_resolver.pdf
+	@rm -rf ./streaming_graph_partitioning.pdf ./graph_resolver.pdf ./community_detection_base.pdf
 #	rm -rf 	streaming_graph_partitioning.log \
 	       	streaming_graph_partitioning.pdf \
 		streaming_graph_partitioning.bbl \
@@ -36,4 +39,5 @@ distclean:
 list:
 	@echo -e "Target Alias:\n \
 		spg - streaming_graph_partitioning\n \
-		gr - graph_resolver"
+		gr - graph_resolver\n \
+		cdb - community_detection_base"
