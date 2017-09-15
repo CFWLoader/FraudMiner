@@ -3,8 +3,10 @@
 //
 #include <sys/types.h>
 #include <sys/socket.h>
+#include <fcntl.h>
 
 #include <cstring>
+#include <string>
 
 // Temporarily using syslog.
 #include <syslog.h>
@@ -73,6 +75,27 @@ int Socket::accept()
 
     return cli_sock;
 
+}
+
+int Socket::setNonBlocking()
+{
+    int opts = fcntl(sock_fd_, F_GETFL);
+
+    if(opts < 0)
+    {
+        throw std::string("FATAL: Socket::setNonBlocking() - fcntl(){F_GETFL}.");
+    }
+
+    opts |= O_NONBLOCK;
+
+    int ret_val = fcntl(sock_fd_, F_SETFL, opts);
+
+    if(ret_val < 0)
+    {
+        throw std::string("FATAL: Socket::setNonBlocking() - fcntl(){F_SETFL}.");
+    }
+
+    return ret_val;
 }
 
 int Socket::getSocketFileDescriptor() const

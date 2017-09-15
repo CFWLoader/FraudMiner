@@ -23,6 +23,8 @@ namespace test_type02
 
             int accept();
 
+            int setNonBlocking();
+
             int getSocketFileDescriptor() const;
 
         private:
