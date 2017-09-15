@@ -55,16 +55,22 @@ int test01()
 
     epoll_event ev;
 
+    char endSig[] = "end\r";
+
     epoller.registerEpollEvent(socket.getSocketFileDescriptor());
 
     while (accepted_count > -1)
     {
         triggered = epoller.wait();
 
+        cout << "Handling " << triggered << " events" << endl;
+
         for (handling = 0; handling < triggered; ++handling)
         {
             if (epoller.getEvents()[handling].data.fd == socket.getSocketFileDescriptor())
             {
+                cout << "Registering new client!" << endl;
+
                 handlingFd = socket.accept();
 
                 if (handlingFd < 0)
@@ -96,6 +102,8 @@ int test01()
                     continue;
                 }
 
+                memset(send_buf, 0, 2048);
+
                 char* head = send_buf;
 
                 size_t recvNum = 0;
@@ -125,7 +133,16 @@ int test01()
                     if(recvNum == 2048)
                     {
                         continue;
-                    } else{
+                    }
+                    else if (recvNum == 0)              // Receive FIN.
+                    {
+                        close(handlingFd);
+
+                        epoller.getEvents()[handling].data.fd = -1;
+
+                        break;
+                    }
+                    else{
                         readOk = true;
                     }
 
@@ -135,7 +152,12 @@ int test01()
                     }
                 }
 
-                if(strcmp("end", send_buf) == 0)
+                printf("Value: %d, rev: %s, len: %u, com: %s, len: %u.\n",
+                       send_buf[3], send_buf, strlen(send_buf),
+                       endSig, strlen(endSig));
+
+                // receive return as \r.
+                if(strcmp(endSig, send_buf) == 0)
                 {
                     close(handlingFd);
 
