@@ -23,6 +23,8 @@ namespace test_type02
 
             int wait();
 
+            std::vector<epoll_event>& getEvents();
+
         private:
 
 //            size_t eventsLimit_;

@@ -43,3 +43,8 @@ int Epoller::wait()
 {
     int triggered = epoll_wait(epfd_, events.data(), events.size(), -1);
 }
+
+std::vector<epoll_event>& Epoller::getEvents()
+{
+    return events;
+}
