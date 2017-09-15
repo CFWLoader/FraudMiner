@@ -23,6 +23,8 @@ namespace test_type02
 
             int accept();
 
+            int getSocketFileDescriptor() const;
+
         private:
 
             int sock_fd_;

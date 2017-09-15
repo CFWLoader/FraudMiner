@@ -74,3 +74,8 @@ int Socket::accept()
     return cli_sock;
 
 }
+
+int Socket::getSocketFileDescriptor() const
+{
+    return sock_fd_;
+}
