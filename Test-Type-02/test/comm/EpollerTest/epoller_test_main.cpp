@@ -57,6 +57,8 @@ int test01()
 
     char endSig[] = "end\r";
 
+    endSig[3] = 13;
+
     epoller.registerEpollEvent(socket.getSocketFileDescriptor());
 
     while (accepted_count > -1)
@@ -136,6 +138,7 @@ int test01()
                     }
                     else if (recvNum == 0)              // Receive FIN.
                     {
+                        cout << "A client is exiting." << endl;
                         close(handlingFd);
 
                         epoller.getEvents()[handling].data.fd = -1;
@@ -152,9 +155,9 @@ int test01()
                     }
                 }
 
-                printf("Value: %d, rev: %s, len: %u, com: %s, len: %u.\n",
-                       send_buf[3], send_buf, strlen(send_buf),
-                       endSig, strlen(endSig));
+//                printf("Value: %d, rev: %s, len: %u, com: %s, len: %u.\n",
+//                       send_buf[3], send_buf, strlen(send_buf),
+//                       endSig, strlen(endSig));
 
                 // receive return as \r.
                 if(strcmp(endSig, send_buf) == 0)
