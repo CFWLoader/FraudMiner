@@ -55,9 +55,9 @@ int test01()
 
     epoll_event ev;
 
-    char endSig[] = "end\r";
-
-    endSig[3] = 13;
+//    char endSig[] = "end\r";
+//
+//    endSig[3] = 13;
 
     epoller.registerEpollEvent(socket.getSocketFileDescriptor());
 
@@ -160,12 +160,12 @@ int test01()
 //                       endSig, strlen(endSig));
 
                 // receive return as \r.
-                if(strcmp(endSig, send_buf) == 0)
-                {
-                    close(handlingFd);
-
-                    epoller.getEvents()[handling].data.fd = -1;
-                }
+//                if(strcmp(endSig, send_buf) == 0)
+//                {
+//                    close(handlingFd);
+//
+//                    epoller.getEvents()[handling].data.fd = -1;
+//                }
 
                 send(handlingFd, send_buf, ::strlen(send_buf), 0);
             }
