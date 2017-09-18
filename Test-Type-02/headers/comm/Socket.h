@@ -6,6 +6,7 @@
 #define TEST_TYPE_02_SOCKET_H
 
 #include <netinet/in.h>
+#include <memory>
 
 namespace test_type02
 {
@@ -21,7 +22,7 @@ namespace test_type02
 
             int listen();
 
-            int accept();
+            std::shared_ptr<Socket> accept();
 
             int setNonBlocking();
 
@@ -29,9 +30,11 @@ namespace test_type02
 
         private:
 
+            Socket();
+
             int sock_fd_;
 
-            sockaddr_in host_addr_;
+            sockaddr_in addr_;
 
         };
     }

@@ -16,16 +16,19 @@
 
 using namespace test_type02::comm;
 
+Socket::Socket()
+{}
+
 Socket::Socket(uint16_t host_port) : sock_fd_(::socket(AF_INET, SOCK_STREAM, 0))
 {
-    ::memset((void*)&host_addr_, 0, sizeof(host_addr_));
+    ::memset((void*)&addr_, 0, sizeof(addr_));
 
-    host_addr_.sin_family = AF_INET;
+    addr_.sin_family = AF_INET;
 
-    host_addr_.sin_port = htons(host_port);
+    addr_.sin_port = htons(host_port);
 
     // Accept requests from any addresses.
-    host_addr_.sin_addr.s_addr = htonl(INADDR_ANY);
+    addr_.sin_addr.s_addr = htonl(INADDR_ANY);
 
     if(sock_fd_ < 0)
     {
@@ -36,7 +39,7 @@ Socket::Socket(uint16_t host_port) : sock_fd_(::socket(AF_INET, SOCK_STREAM, 0))
 
 int Socket::bind()
 {
-    int ret_val = ::bind(sock_fd_, (sockaddr*)&host_addr_, sizeof(host_addr_));
+    int ret_val = ::bind(sock_fd_, (sockaddr*)&addr_, sizeof(addr_));
 
     if(ret_val < 0)
     {
@@ -58,22 +61,24 @@ int Socket::listen()
     return ret_val;
 }
 
-int Socket::accept()
+std::shared_ptr<Socket> Socket::accept()
 {
-    sockaddr_in cli_addr;
+    // sockaddr_in cli_addr;
+
+    Socket* cli_sock = new Socket();
 
     socklen_t socklen;
 
-    ::memset((void*)&cli_addr, 0, sizeof(cli_addr));
+    ::memset((void*)&(cli_sock->addr_), 0, sizeof(cli_sock->addr_));
 
-    int cli_sock = ::accept(sock_fd_, (sockaddr*)&cli_addr, &socklen);
+    cli_sock->sock_fd_ = ::accept(sock_fd_, (sockaddr*)&(cli_sock->addr_), &socklen);
 
-    if(cli_sock < 0)
+    if(cli_sock->sock_fd_ < 0)
     {
         syslog(LOG_ERR, "%s:%d, Socket::accept() failed.", __FILE__, __LINE__);
     }
 
-    return cli_sock;
+    return std::shared_ptr<Socket>(cli_sock);
 
 }
 
