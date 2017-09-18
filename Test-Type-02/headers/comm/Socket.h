@@ -18,6 +18,8 @@ namespace test_type02
 
             Socket(uint16_t);
 
+            ~Socket();
+
             int bind();
 
             int listen();

@@ -4,9 +4,11 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <fcntl.h>
+#include <unistd.h>
 
 #include <cstring>
 #include <string>
+//#include <iostream>
 
 // Temporarily using syslog.
 #include <syslog.h>
@@ -35,6 +37,15 @@ Socket::Socket(uint16_t host_port) : sock_fd_(::socket(AF_INET, SOCK_STREAM, 0))
         syslog(LOG_ERR, "%s:%d, Socket::Socket() failed.", __FILE__, __LINE__);
     }
 
+}
+
+Socket::~Socket()
+{
+//    std::cout << "A socket is being closed." << std::endl;
+
+    ::close(sock_fd_);
+
+    sock_fd_ = -1;
 }
 
 int Socket::bind()

@@ -2,9 +2,11 @@
 #include <unistd.h>
 
 #include <iostream>
+#include <memory>
 
 #include <comm/Socket.h>
 
+using namespace std;
 
 using test_type02::comm::Socket;
 
@@ -21,7 +23,7 @@ int test01()
 
     while(accepted_count < 8)
     {
-        int cli_sock = socket.accept();
+        std::shared_ptr<Socket> cli_sock = socket.accept();
 
         if(cli_sock < 0)
         {
@@ -30,9 +32,9 @@ int test01()
 
         snprintf(send_buf, 2048, "You have successfully connect the host!");
 
-        send(cli_sock, send_buf, ::strlen(send_buf), 0);
+        send(cli_sock->getSocketFileDescriptor(), send_buf, ::strlen(send_buf), 0);
 
-        close(cli_sock);
+        // close(cli_sock);
 
         ++accepted_count;
     }
