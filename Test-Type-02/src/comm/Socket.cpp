@@ -43,6 +43,11 @@ Socket::~Socket()
 {
 //    std::cout << "A socket is being closed." << std::endl;
 
+    if(sock_fd_ == -1)
+    {
+        return;
+    }
+
     ::close(sock_fd_);
 
     sock_fd_ = -1;
@@ -72,7 +77,7 @@ int Socket::listen()
     return ret_val;
 }
 
-std::shared_ptr<Socket> Socket::accept()
+Socket* Socket::accept()
 {
     // sockaddr_in cli_addr;
 
@@ -89,7 +94,7 @@ std::shared_ptr<Socket> Socket::accept()
         syslog(LOG_ERR, "%s:%d, Socket::accept() failed.", __FILE__, __LINE__);
     }
 
-    return std::shared_ptr<Socket>(cli_sock);
+    return cli_sock;
 
 }
 

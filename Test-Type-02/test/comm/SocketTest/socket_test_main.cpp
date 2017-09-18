@@ -23,7 +23,7 @@ int test01()
 
     while(accepted_count < 8)
     {
-        std::shared_ptr<Socket> cli_sock = socket.accept();
+        Socket* cli_sock = socket.accept();
 
         if(cli_sock < 0)
         {
@@ -35,6 +35,7 @@ int test01()
         send(cli_sock->getSocketFileDescriptor(), send_buf, ::strlen(send_buf), 0);
 
         // close(cli_sock);
+        delete cli_sock;
 
         ++accepted_count;
     }
