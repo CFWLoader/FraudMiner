@@ -1,6 +1,6 @@
 TARGET_LIST=*.log *.bbl *.aux *.blg *.toc
 
-all: sgp gr cdb
+all: sgp gr tt2
 
 sgp:
 	pdflatex streaming_graph_partitioning.tex
@@ -14,8 +14,8 @@ gr:
 	pdflatex graph_resolver.tex
 	pdflatex graph_resolver.tex
 
-cdb:
-	pdflatex community_detection_base.tex
+tt2:
+	pdflatex test_type02.tex
 
 clean:
 	@rm -rf ${TARGET_LIST}
