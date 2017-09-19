@@ -148,6 +148,8 @@
 	The relationships of vertexes in the graph are fixed. But when we use a visual picture to describe a graph, every can draw a different picture. So different way to describe the graph may trigger different method to paratition the graph. So can we find an efficient model to describe visualized graph? Or the most accurate visualized model to view the graph?
 	\subsubsection{Can we apply some mathematical methods on such a 'sphere'?}
 	Such as doing some integrals on this sphere to find the cutting hyperplane and evenly dividing this objects?
+	\subsubsection{Statistical Plugin for Distributed Graph Processing System}
+	The goal of this plugin is to provide dynamically adjusting the graph nodes distribution in the cluster. Seems like doing a clustering on the graph partitions. For example, if a node 1 has been frequently accessed by another one machine instead of local machine. This node should be moved to the other machine for boosting the computation.
 
 	\subsection{Reformat the Cluster Framework}
 	In my opinion, the procedure of graph computation contains three types of cluster node:

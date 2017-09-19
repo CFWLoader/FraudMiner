@@ -26,6 +26,14 @@
 	\section{Introduction}
 	\textbf{Test Type 02} is a distributed graph processing system. It evolves from \textbf{Test Type 01}(also named nameless, which is failed due to too early perfect design). It will be assigned a name once the demo comes out.
 
+	\section{System Specifications}
+	\subsection{Fault Tolerance}
+	The trait wouldn't be implemented until the core function(graph processing) implemented.
+	\subsubsection{Checkpointing}
+	In beginning of every iterations, the system will save the graph state to storage system.
+	\subsubsection{Ping}
+	Use this tech to detect a computing node is failed or not.
+
 	\section{System Architecture}
 	\subsetion{Communcation between computing nodes}
 	The communcation pattern between computing nodes temporarily is set to \textbf{Preactor} for early test.
