@@ -17,6 +17,9 @@ gr:
 tt2:
 	pdflatex test_type02.tex
 
+opga:
+	pdflatex overview_of_parallel_graph_algorithms.tex
+
 clean:
 	@rm -rf ${TARGET_LIST}
 #	@rm -rf 	streaming_graph_partitioning.log \
@@ -40,4 +43,5 @@ list:
 	@echo -e "Target Alias:\n \
 		spg - streaming_graph_partitioning\n \
 		gr - graph_resolver\n \
-		cdb - community_detection_base"
+		cdb - community_detection_base\n \
+		opga - overview_of_parallel_graph_algorithms"
