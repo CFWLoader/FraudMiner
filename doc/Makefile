@@ -31,7 +31,7 @@ clean:
 
 distclean:
 	@make clean
-	@rm -rf ./streaming_graph_partitioning.pdf ./graph_resolver.pdf ./community_detection_base.pdf
+	@rm -rf ./streaming_graph_partitioning.pdf ./graph_resolver.pdf ./test_type02.pdf ./overview_of_parallel_graph_algorithms.pdf
 #	rm -rf 	streaming_graph_partitioning.log \
 	       	streaming_graph_partitioning.pdf \
 		streaming_graph_partitioning.bbl \

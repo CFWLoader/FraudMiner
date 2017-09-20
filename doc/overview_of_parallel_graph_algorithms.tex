@@ -28,9 +28,40 @@
 	I search key words like 'distributed', 'parallel' or 'giraph' to find the current progress for any papers, implemented codes.
 	\subsubsection{Giraph}
 	Firstly I found this project \url{https://github.com/smly/giraph-classifier}. It's about label propagation.
+	\newline
 	There is a upper layer application based on Giraph and GraphX \url{https://github.com/Sotera/distributed-graph-analytics}, which implemented High Betweenness Set Extraction, Weakly Connected Components, Page Rank, Leaf Compression, and Louvain Modularity on them.
 
 	\section{Brief of Parallel Graph Algorithms}
+	Classic algorithms like \textbf{Page Rank}, \textbf{Single Source Shortest Path}, \textbf{Randown Walks}, \textbf{Triangle Count}, \textbf{etc.} are implemented as frameworkd built-in demos. There is no need to talk about these algorithms.
+	\begin{table}[!bhp]
+	\begin{tabular}{|c|c|c|c|c|}
+	\hline
+	Algo 						& 	Parallel 	& 	Published	& 	Open Souces	&	Platform	\\
+	\hline
+	LPA							&	Yes			&	Yes			& 	Yes			&	GPU			\\
+	\hline
+	Louvain						&	Yes			&	Yes			&	Yes			&	Spark		\\
+	\hline
+	K-Core Decomposition		& 	Yes			&	Yes			&	Yes			&	Giraph		\\
+	\hline
+	K-Means						&	Yes			&	Yes			&	Yes			&	Giraph 		\\
+	\hline
+	Influence Maximization		&	Yes			&	Yes			&	Yes			&	GPU,GraphX	\\
+	\hline
+	Stochastic Gradient Descend	&	Yes			&	Yes			&	Yes			&	Giraph 		\\
+	\hline
+	Graph Isomorphism			&	Yes			&	Yes			&	Yes			& 	CUDA		\\
+	\hline
+	Graph Coloring				&	Yes			&	Yes			& 	Yes			&	Giraph 		\\
+	\hline
+	Community Structure Dectection	& 	Yes		&	Yes			&	Yes			&	Giraph 		\\
+	\hline
+	Restricted Boltzmann Machine	& 	Yes		&	Unknown		&	Yes			&	Giraph 		\\
+	\hline
+
+	\end{tabular}
+	\caption{Brief of Parallel Graph Algorithms}
+	\end{table}
 
 	\begin{appendix}
 		\section{References}
