@@ -25,22 +25,22 @@
 
 	\section{Using Search Engine to discover}
 	\subsection{Github}
-	I search key words like 'distributed', 'parallel' or 'giraph' to find the current progress for any papers, implemented codes.
+	I search key words like \emph{distributed}, \emph{parallel} or \emph{giraph} to find the current progress for any papers, implemented codes.
 	\subsubsection{Giraph}
-	Firstly I found this project \url{https://github.com/smly/giraph-classifier}. It's about label propagation.
+	Firstly I found this project \emph{Giraph Classifier}\cite{giraph_classifier}. It's about label propagation.
 	\newline
-	There is a upper layer application based on Giraph and GraphX \url{https://github.com/Sotera/distributed-graph-analytics}, which implemented High Betweenness Set Extraction, Weakly Connected Components, Page Rank, Leaf Compression, and Louvain Modularity on them.
+	There is a upper layer application\cite{dis_graph_ana} based on Giraph and GraphX, which implemented High Betweenness Set Extraction, Weakly Connected Components, Page Rank, Leaf Compression, and Louvain Modularity on them.
 
 	\section{Brief of Parallel Graph Algorithms}
-	Classic algorithms like \textbf{Page Rank}, \textbf{Single Source Shortest Path}, \textbf{Randown Walks}, \textbf{Triangle Count}, \textbf{etc.} are implemented as frameworkd built-in demos. There is no need to talk about these algorithms.
+	Classic algorithms like \emph{Page Rank}, \emph{Single Source Shortest Path}, \emph{Randown Walks}, \emph{Triangle Count}, \emph{Connected Components}, \emph{etc.} are implemented as framework built-in demos. There is no need to talk about these algorithms.
 	\begin{table}[!bhp]
 	\begin{tabular}{|c|c|c|c|c|}
 	\hline
-	Algo 						& 	Parallel 	& 	Published	& 	Open Souces	&	Platform	\\
+	Algorithm					& 	Parallel 	& 	Published	& 	Open Souces	&	Platform(s)	\\
 	\hline
 	LPA							&	Yes			&	Yes			& 	Yes			&	GPU			\\
 	\hline
-	Louvain						&	Yes			&	Yes			&	Yes			&	Spark		\\
+	Louvain						&	Yes			&	Yes			&	Yes			&	GraphX		\\
 	\hline
 	K-Core Decomposition		& 	Yes			&	Yes			&	Yes			&	Giraph		\\
 	\hline
@@ -58,6 +58,22 @@
 	\hline
 	Restricted Boltzmann Machine	& 	Yes		&	Unknown		&	Yes			&	Giraph 		\\
 	\hline
+	Non-negative Matrix Factorization	& 	Yes	&	Yes			&	Yes			&	GraphX		\\
+	\hline
+	Closeness Centrality 		&	Yes			&	Yes			& 	Yes			&	Multi-CPU	\\
+	\hline
+	k-Influential Community Search 	&	No 		&	No 			& 	No 			& 	None 		\\
+	\hline
+	Influence Maximization 		&	Yes			&	Yes			&	Yes			&	Unknown		\\
+	\hline
+	pSCAN(Chang)				&	Unknown		&	No 			&	No 			& 	None 		\\
+	\hline
+	PSCAN(Zhao)					& 	Yes			&	Yes			&	Unknown		&	MapReduce	\\
+	\hline
+	gSpan						&	Yes			& 	Yes			& 	Yes			& 	Java,CUDA,FPGA \\
+	\hline
+
+	\hline
 
 	\end{tabular}
 	\caption{Brief of Parallel Graph Algorithms}
@@ -65,8 +81,8 @@
 
 	\begin{appendix}
 		\section{References}
-		%\bibliography{gr_refs}
-		%\bibliographystyle{ieeetr}
+		\bibliography{opga_refs}
+		\bibliographystyle{ieeetr}
 	\end{appendix}
 
 \end{document}

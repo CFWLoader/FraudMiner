@@ -19,6 +19,9 @@ tt2:
 
 opga:
 	pdflatex overview_of_parallel_graph_algorithms.tex
+	bibtex overview_of_parallel_graph_algorithms
+	pdflatex overview_of_parallel_graph_algorithms.tex
+	pdflatex overview_of_parallel_graph_algorithms.tex
 
 clean:
 	@rm -rf ${TARGET_LIST}
