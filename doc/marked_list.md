@@ -40,11 +40,19 @@
 
 ## WWW
 
+### 2015
+| Title | Authors | Status | Comment |
+| :---: | :-----: | :----: | :-----: |
+| The Web as a Jungle: Non-Linear Dynamical Systems for Co-evolving Online Activities | Yasuko Matsubara | Mark | May be useful |
+| LINE: Large-scale information network embedding | Jian Tang | Mark | High refercences |
+| Effective Techniques for Message Reduction and Load Balancing in Distributed Graph Computation | Da Yan | Mark | NULL |
+
 ### 2016
 | Title | Authors | Status | Comment |
 | :---: | :-----: | :----: | :-----: |
 | Latent Space Model for Multi-Modal Social Data | Yoon-sik Cho | Read-1 | Long Formula |
 | Modeling a Retweet Network via an Adaptive Bayesian Approach | Bin Bi | Mark | NULL |
+| The Effect of Recommendations on Network Structure | Jessica Su | Mark | NULL |
 
 ## VLDB
 
@@ -52,3 +60,4 @@
 | Title | Authors | Status | Comment |
 | :---: | :-----: | :----: | :-----: |
 | Influential Community Search in Large Networks | Rong-Hua Li | Read-1 | Too much formula |
+| Distributed Estimation of Graph 4-Profiles | Ethan R. Elenberg | Mark | NULL |
