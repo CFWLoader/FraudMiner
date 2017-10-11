@@ -4,6 +4,7 @@
 - `Mark` means papers have been marked(downloaded) but unread.
 - `Read` means papers have been read but may need more processes.
 - `Stop` means papers have been read but papers do not effect to the research and possibly would not be viewed more.
+- `Hang` means papers seem meaningless whatever they are read or not, need more discussions or examinations.
 - `Note` means papers may have benefit for the research and papers have been noted to the documents for future work.
 - `Compare` means papers are valuable for the research and compared with other noted papers. These papers seem like the final choice.
 - `Done` means this paper is the problem I will work for.
@@ -14,7 +15,7 @@
 | Title | Authors | Status | Comment |
 | :---: | :-----: | :----: | :-----: |
 | Locally Densest Subgraph Discovery | Lu Qin | Mark | NULL |
-| A Learning-based Framework to Handle Multi-round Multi-party Influence Maximization on Social Networks | SuChen Lin | Mark | NULL |
+| A Learning-based Framework to Handle Multi-round Multi-party Influence Maximization on Social Networks | SuChen Lin | <font color="red">Hang</font> | Low References(3) |
 | CoupledLP: Link Prediction in Coupled Networks | Yuxiao Dong | Mark | NULL |
 | Efficient Latent Link Recommendation in Signed Networks | Dongjin Song | Mark | NULL |
 | Flexible and Robust Multi-Network Clustering | Jingchao Ni | Mark | NULL |
@@ -24,11 +25,11 @@
 | Scalable Large Near-Clique Detection in Large-Scale Networks via Sampling | Michael Mitzenmacher | Mark | NULL |
 | Deep Graph Kernels | Pinar Yanardag | Mark | NULL |
 | Fast and Memory-Efficient Significant Pattern Mining via Permutation Testing | Felipe Llinares-Lopez | Mark | NULL |
-| Community Detection based on Distance Dynamics | Junming Shao | Mark | NULL |
+| Community Detection based on Distance Dynamics | Junming Shao | <font color="red">Hang</font> | Parallelized-unknown |
 | Selective Hashing: Closing the Gap between Radius Search and k-NN Search | Jinyang Gao | Mark | NULL |
 | Panther: Fast Top-k Similarity Search on Large Networks | Jing Zhang | ? | NULL |
 | Non-transitive Hashing with Latent Similarity Components | Mingdong Ou | Mark | NULL |
-| ALOJA-ML A Framework for Automating Characterization and Knowledge Discovery in Hadoop Deployments | Jsep LI. Berral | Mark | NULL |
+| ALOJA-ML A Framework for Automating Characterization and Knowledge Discovery in Hadoop Deployments | Jsep LI. Berral | <font color="red">Hang</font> | Hardware required |
 
 ### 2016
 | Title | Authors | Status | Comment |
@@ -50,7 +51,7 @@
 ### 2016
 | Title | Authors | Status | Comment |
 | :---: | :-----: | :----: | :-----: |
-| Latent Space Model for Multi-Modal Social Data | Yoon-sik Cho | Read-1 | Long Formula |
+| Latent Space Model for Multi-Modal Social Data | Yoon-sik Cho | <font color="green">Read</font> | Long Formula |
 | Modeling a Retweet Network via an Adaptive Bayesian Approach | Bin Bi | Mark | NULL |
 | The Effect of Recommendations on Network Structure | Jessica Su | Mark | NULL |
 
@@ -59,7 +60,7 @@
 ### 2015
 | Title | Authors | Status | Comment |
 | :---: | :-----: | :----: | :-----: |
-| Influential Community Search in Large Networks | Rong-Hua Li | Read-1 | Too much formula |
+| Influential Community Search in Large Networks | Rong-Hua Li | <font color="green">Read</font> | Too much formula |
 | Distributed Estimation of Graph 4-Profiles | Ethan R. Elenberg | Mark | NULL |
 
 ## ICDE
@@ -67,4 +68,5 @@
 ### 2016
 | Title | Authors | Status | Comment |
 | :---: | :-----: | :----: | :-----: |
-| Scalable Supergraph Search in Large Graph Databases | Bingqing Lyu | Read | OPGA |
+| Scalable Supergraph Search in Large Graph Databases | Bingqing Lyu | <font color="green">Read</font> | OPGA |
+| When Two Choices Are not Enough: Balancing at Scale in Distributed Stream Processing | Muhammad Anis Uddin Nasir | Stop | Not relevant |
