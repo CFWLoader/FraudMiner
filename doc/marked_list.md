@@ -61,3 +61,10 @@
 | :---: | :-----: | :----: | :-----: |
 | Influential Community Search in Large Networks | Rong-Hua Li | Read-1 | Too much formula |
 | Distributed Estimation of Graph 4-Profiles | Ethan R. Elenberg | Mark | NULL |
+
+## ICDE
+
+### 2016
+| Title | Authors | Status | Comment |
+| :---: | :-----: | :----: | :-----: |
+| Scalable Supergraph Search in Large Graph Databases | Bingqing Lyu | Read | OPGA |
