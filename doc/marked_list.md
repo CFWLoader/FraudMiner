@@ -14,22 +14,23 @@
 ### 2015
 | Title | Authors | Status | Comment |
 | :---: | :-----: | :----: | :-----: |
-| Locally Densest Subgraph Discovery | Lu Qin | Mark | NULL |
+| Locally Densest Subgraph Discovery | Lu Qin | <font color="blue">Mark</font> | May be a choice |
 | A Learning-based Framework to Handle Multi-round Multi-party Influence Maximization on Social Networks | SuChen Lin | <font color="red">Hang</font> | Low References(3) |
-| CoupledLP: Link Prediction in Coupled Networks | Yuxiao Dong | Mark | NULL |
-| Efficient Latent Link Recommendation in Signed Networks | Dongjin Song | Mark | NULL |
-| Flexible and Robust Multi-Network Clustering | Jingchao Ni | Mark | NULL |
-| Edge-Weighted Personalized PageRank: Breaking A Decade-Old Performance Barrier | Wenlei Xie | Mark | NULL |
-| MASCOT: Memory-efficient and Accurate Sampling for Counting Local Triangles in Graph Streams | Yongsub Lim | Mark | NULL |
+| CoupledLP: Link Prediction in Coupled Networks | Yuxiao Dong | <font color="blue">Mark</font> | Looks like can be parallelized |
+| Efficient Latent Link Recommendation in Signed Networks | Dongjin Song | Stop | Not relevant to graph |
+| Flexible and Robust Multi-Network Clustering | Jingchao Ni | <font color="red">Hang</font> | Formula, Lemma, Matrix |
+| Edge-Weighted Personalized PageRank: Breaking A Decade-Old Performance Barrier | Wenlei Xie | Stop | Low References(4) |
+| MASCOT: Memory-efficient and Accurate Sampling for Counting Local Triangles in Graph Streams | Yongsub Lim | <font color="blue">Mark</font> | Old field, other methods are parallel |
 | Efficient PageRank Tracking in Evolving Networks | Naoto Ohsaka | Mark | NULL |
 | Scalable Large Near-Clique Detection in Large-Scale Networks via Sampling | Michael Mitzenmacher | Mark | NULL |
-| Deep Graph Kernels | Pinar Yanardag | Mark | NULL |
-| Fast and Memory-Efficient Significant Pattern Mining via Permutation Testing | Felipe Llinares-Lopez | Mark | NULL |
+| Deep Graph Kernels | Pinar Yanardag | Stop | Need ML and NLPrs |
+| Fast and Memory-Efficient Significant Pattern Mining via Permutation Testing | Felipe Llinares-Lopez | <font color="red">Hang</font> | Low References(5) |
 | Community Detection based on Distance Dynamics | Junming Shao | <font color="red">Hang</font> | Parallelized-unknown |
 | Selective Hashing: Closing the Gap between Radius Search and k-NN Search | Jinyang Gao | Mark | NULL |
 | Panther: Fast Top-k Similarity Search on Large Networks | Jing Zhang | ? | NULL |
-| Non-transitive Hashing with Latent Similarity Components | Mingdong Ou | Mark | NULL |
+| Non-transitive Hashing with Latent Similarity Components | Mingdong Ou | Stop | Low References(3), Image processing |
 | ALOJA-ML A Framework for Automating Characterization and Knowledge Discovery in Hadoop Deployments | Jsep LI. Berral | <font color="red">Hang</font> | Hardware required |
+| FrauDetector: A Graph-Mining-based Framework for Fraudulent Phone Call Detection | Vincent S. Tseng | <font color="red">Hang</font> | Low References(3), the backend's code is possibly parallelized |
 
 ### 2016
 | Title | Authors | Status | Comment |
