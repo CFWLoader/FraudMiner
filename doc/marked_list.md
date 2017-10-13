@@ -43,6 +43,11 @@
 
 | Title | Authors | Status | Comment |
 | :---: | :-----: | :----: | :-----: |
+| A Local Algorithm for Structure-Preserving Graph Cut | Dawei Zhou | <font color="red">Hang</font> | Graph-Cut, too many formula, using tensor |
+| Bolt Accelerated Data Mining with Fast Vector Compression | Davis W. Blalock | Stop | Mathematical Problem |
+| Communication-Efficient Distributed Block Minimization for Nonlinear Kernel Machines | Cho-Jui Hsieh | Stop | Mathematical Problem |
+| FORA Simple and Effective Approximate Single-Source Personalized PageRank | Sibo Wang | <font color="red">Hang</font> | Page Rank-base method |
+| Graph Edge Partitioning via Neighborhood Heuristic | Chenzi Zhang | Stop | Graph Partitioning |
 
 ## WWW
 
