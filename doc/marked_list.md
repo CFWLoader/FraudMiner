@@ -21,13 +21,13 @@
 | Flexible and Robust Multi-Network Clustering | Jingchao Ni | <font color="red">Hang</font> | Formula, Lemma, Matrix |
 | Edge-Weighted Personalized PageRank: Breaking A Decade-Old Performance Barrier | Wenlei Xie | Stop | Low References(4) |
 | MASCOT: Memory-efficient and Accurate Sampling for Counting Local Triangles in Graph Streams | Yongsub Lim | <font color="blue">Mark</font> | Old field, other methods are parallel |
-| Efficient PageRank Tracking in Evolving Networks | Naoto Ohsaka | Mark | NULL |
-| Scalable Large Near-Clique Detection in Large-Scale Networks via Sampling | Michael Mitzenmacher | Mark | NULL |
+| Efficient PageRank Tracking in Evolving Networks | Naoto Ohsaka | <font color="red">Hang</font> | Low References(4) |
+| Scalable Large Near-Clique Detection in Large-Scale Networks via Sampling | Michael Mitzenmacher | <font color="green">Hang</font> | Pure formula in paper, but codes are open source |
 | Deep Graph Kernels | Pinar Yanardag | Stop | Need ML and NLPrs |
 | Fast and Memory-Efficient Significant Pattern Mining via Permutation Testing | Felipe Llinares-Lopez | <font color="red">Hang</font> | Low References(5) |
 | Community Detection based on Distance Dynamics | Junming Shao | <font color="red">Hang</font> | Parallelized-unknown |
-| Selective Hashing: Closing the Gap between Radius Search and k-NN Search | Jinyang Gao | Mark | NULL |
-| Panther: Fast Top-k Similarity Search on Large Networks | Jing Zhang | ? | NULL |
+| Selective Hashing: Closing the Gap between Radius Search and k-NN Search | Jinyang Gao | Stop | Irrelevant |
+| Panther: Fast Top-k Similarity Search on Large Networks | Jing Zhang | <font color="red">Hang</font> | Undownloadable |
 | Non-transitive Hashing with Latent Similarity Components | Mingdong Ou | Stop | Low References(3), Image processing |
 | ALOJA-ML A Framework for Automating Characterization and Knowledge Discovery in Hadoop Deployments | Jsep LI. Berral | <font color="red">Hang</font> | Hardware required |
 | FrauDetector: A Graph-Mining-based Framework for Fraudulent Phone Call Detection | Vincent S. Tseng | <font color="red">Hang</font> | Low References(3), the backend's code is possibly parallelized |
@@ -35,10 +35,14 @@
 ### 2016
 | Title | Authors | Status | Comment |
 | :---: | :-----: | :----: | :-----: |
-| Approximate Personalized PageRank on Dynamic Graphs | Hongyang Zhang | Mark | NULL |
-| Joint Community and Structural Hole Spanner Detection via Harmonic Modularity | Lifang He | Mark | NULL |
+| Approximate Personalized PageRank on Dynamic Graphs | Hongyang Zhang | <font color="red">Hang</font> | PageRank is a easily parallelized algorithm |
+| Joint Community and Structural Hole Spanner Detection via Harmonic Modularity | Lifang He | <font color="blue">Mark</font> | Not parallel yet, acceptable quantity of formula |
+| Compressing Graphs and Indexes with Recursive Graph Bisection | Laxman Dhulipala | Stop | The author said this algorithm is easily parallelized |
 
 ### 2017
+
+| Title | Authors | Status | Comment |
+| :---: | :-----: | :----: | :-----: |
 
 ## WWW
 

@@ -90,6 +90,14 @@
 	Also, this algorithm needs to control the size of subgraphs(this maybe the disadvantage).
 	\newline
 	This idea inspired me of a new idea to process community detection cause the framework of this idea is like to Decision Tree. Can the algorithm use edge information to measure the score of features? And then use the feature to enlarge the graph to partitions(Communities).
+	\subsection{Top-\emph{r} \emph{k}-Influential communities}
+	Li\cite{li2015influential} proposed a method for mining Top-\emph{r} \emph{k}-Influential communities. I'm very interesting in this problem and wanna parallelize this algorithm. During searching the other papers, an idea has been lighted and it's that can I free the \emph{k} parameters for improving the correctness of this algorithm? Because the \emph{k} may severely limits the actual size of the communities therefore reduces the correctness of the result.
+	\newline
+	\textbf{Techs} used in this paper: \emph{k-core}, \emph{DFS}, \emph{ICP-Index}.
+	\newline
+	The k-core of a graph is the maximal subgraph with minimum (single node in the subgraph) degree at least k.
+	\newline
+	It's a possible to apply \emph{Louvain} on the graph and find the communities, then apply algorithms such as \emph{Page Rank} on the result to find the top \emph{k} communities as the influential communities.
 
 	\begin{appendix}
 		\section{References}
