@@ -97,9 +97,13 @@
 	\newline
 	The k-core of a graph is the maximal subgraph with minimum (single node in the subgraph) degree at least k.
 	\newline
+	In this paper, the influence value of a community is defined as the minimum weight of the nodes in that community. And the average weight of nodes in the community has drawbacks of robustness of outliers. Maybe I can change the definition of the influence value, such as upgraded average weight or others?
+	\newline
 	It's a possible to apply \emph{Louvain} on the graph and find the communities, then apply algorithms such as \emph{Page Rank} on the result to find the top \emph{k} communities as the influential communities.
 	\newline
 	Find the best way to searching communities may help improving the correctness of ranking.
+	\newline
+	But this algorithm has been applied as an online algorithm and is fast enough(seconds for large k, r value on large graph, e.g. more than 1 billion edges.). It's very hard for me to conduct the experiment.
 
 	\begin{appendix}
 		\section{References}

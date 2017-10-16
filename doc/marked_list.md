@@ -70,8 +70,8 @@
 ### 2015
 | Title | Authors | Status | Comment |
 | :---: | :-----: | :----: | :-----: |
-| Influential Community Search in Large Networks | Rong-Hua Li | <font color="green">Read</font> | Too much formula |
-| Distributed Estimation of Graph 4-Profiles | Ethan R. Elenberg | Mark | NULL |
+| Influential Community Search in Large Networks | Rong-Hua Li | Stop | Need experiments on large graphs |
+| Distributed Estimation of Graph 4-Profiles | Ethan R. Elenberg | Hange | Just for learning how to parallel the algorithm |
 
 ## ICDE
 
