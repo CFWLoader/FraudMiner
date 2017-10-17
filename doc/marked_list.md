@@ -48,6 +48,9 @@
 | Communication-Efficient Distributed Block Minimization for Nonlinear Kernel Machines | Cho-Jui Hsieh | Stop | Mathematical Problem |
 | FORA Simple and Effective Approximate Single-Source Personalized PageRank | Sibo Wang | <font color="red">Hang</font> | Page Rank-base method |
 | Graph Edge Partitioning via Neighborhood Heuristic | Chenzi Zhang | Stop | Graph Partitioning |
+| Local Higher-Order Graph Clustering | Hao Yin | <font color="red">Hang</font> | Need matrix |
+| Similarity Forests | Saket Sathe | Stop | Classification and Regression |
+| Towards an Optimal Subspace for K-Means | Dominik Mautz | Stop | Vector Computation |
 
 ## WWW
 
