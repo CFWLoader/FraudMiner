@@ -16,7 +16,7 @@
 | :---: | :-----: | :----: | :-----: |
 | Locally Densest Subgraph Discovery | Lu Qin | <font color="blue">Mark</font> | May be a choice |
 | A Learning-based Framework to Handle Multi-round Multi-party Influence Maximization on Social Networks | SuChen Lin | <font color="red">Hang</font> | Low References(3) |
-| CoupledLP: Link Prediction in Coupled Networks | Yuxiao Dong | <font color="blue">Mark</font> | Looks like can be parallelized |
+| CoupledLP: Link Prediction in Coupled Networks | Yuxiao Dong | <font color="red">Hang</font> | Using ML concepts |
 | Efficient Latent Link Recommendation in Signed Networks | Dongjin Song | Stop | Not relevant to graph |
 | Flexible and Robust Multi-Network Clustering | Jingchao Ni | <font color="red">Hang</font> | Formula, Lemma, Matrix |
 | Edge-Weighted Personalized PageRank: Breaking A Decade-Old Performance Barrier | Wenlei Xie | Stop | Low References(4) |
