@@ -95,9 +95,9 @@
 	\newline
 	\textbf{Techs} used in this paper: \emph{k-core}, \emph{DFS}, \emph{ICP-Index}.
 	\newline
-	The k-core of a graph is the maximal subgraph with minimum (single node in the subgraph) degree at least k.
+	The k-core of a graph is the maximal subgraph with minimum (single node in the subgraph) degree at least k. \emph{k}-truss model cannot effectively find influential community.
 	\newline
-	In this paper, the influence value of a community is defined as the minimum weight of the nodes in that community. And the average weight of nodes in the community has drawbacks of robustness of outliers. Maybe I can change the definition of the influence value, such as upgraded average weight or others?
+	In this paper, the influence value of a community is defined as the minimum weight of the nodes in that community. And the average weight of nodes in the community has drawbacks of robustness of outliers. Maybe I can change the definition of the influence value, such as upgraded average weight or others? While reading \cite{huang2015approximate}, a new idea of measuring the influence value emerged in my brain, that is, using some concept such triangle count in the community to stablize the influence value in case of outliers.
 	\newline
 	It's a possible to apply \emph{Louvain} on the graph and find the communities, then apply algorithms such as \emph{Page Rank} on the result to find the top \emph{k} communities as the influential communities.
 	\newline

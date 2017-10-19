@@ -31,6 +31,7 @@
 | Non-transitive Hashing with Latent Similarity Components | Mingdong Ou | Stop | Low References(3), Image processing |
 | ALOJA-ML A Framework for Automating Characterization and Knowledge Discovery in Hadoop Deployments | Jsep LI. Berral | <font color="red">Hang</font> | Hardware required |
 | FrauDetector: A Graph-Mining-based Framework for Fraudulent Phone Call Detection | Vincent S. Tseng | <font color="red">Hang</font> | Low References(3), the backend's code is possibly parallelized |
+| Approximate Closest Community Search in Networks | Xin Huang | Hang | No inpiration |
 
 ### 2016
 | Title | Authors | Status | Comment |
