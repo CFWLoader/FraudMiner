@@ -84,3 +84,4 @@
 | :---: | :-----: | :----: | :-----: |
 | Scalable Supergraph Search in Large Graph Databases | Bingqing Lyu | <font color="green">Read</font> | OPGA |
 | When Two Choices Are not Enough: Balancing at Scale in Distributed Stream Processing | Muhammad Anis Uddin Nasir | Stop | Not relevant |
+| Effective Community Search for Large Attributed Graphs | Yixiang Fang | Read | Currently no inspiration |
