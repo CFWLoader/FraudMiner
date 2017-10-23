@@ -1,6 +1,6 @@
 TARGET_LIST=*.log *.bbl *.aux *.blg *.toc
 
-all: sgp gr tt2
+all: sgp gr tt2 opga
 
 sgp:
 	pdflatex streaming_graph_partitioning.tex
